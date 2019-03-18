@@ -17,7 +17,7 @@
       "is_lookup" : 1,
       "type" : "inner_product",
       "has_relu" : 0,
-      "bottom" : "input1",
+      "bottom" : "words",
       "has_tanh" : 0,
       "hint_fallback_from_metal" : 1,
       "name" : "embedding_1",
@@ -84,7 +84,7 @@
       "weights" : {
 
       },
-      "top" : "output1",
+      "top" : "sentiment",
       "type" : "activation",
       "name" : "dense_1__activation__",
       "bottom" : "dense_1_output"

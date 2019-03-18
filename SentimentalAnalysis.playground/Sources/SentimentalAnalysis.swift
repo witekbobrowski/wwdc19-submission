@@ -11,8 +11,8 @@ import CoreML
 @available(macOS 10.13, iOS 11.0, tvOS 11.0, watchOS 4.0, *)
 public class SentimentalAnalysisInput : MLFeatureProvider {
 
-    /// input1 as 1 element vector of doubles
-    var input1: MLMultiArray
+    /// Sequence of IDs correspoding to words as 1 element vector of doubles
+    var words: MLMultiArray
 
     /// lstm_1_h_in as optional 100 element vector of doubles
     var lstm_1_h_in: MLMultiArray? = nil
@@ -22,13 +22,13 @@ public class SentimentalAnalysisInput : MLFeatureProvider {
 
     public var featureNames: Set<String> {
         get {
-            return ["input1", "lstm_1_h_in", "lstm_1_c_in"]
+            return ["words", "lstm_1_h_in", "lstm_1_c_in"]
         }
     }
     
     public func featureValue(for featureName: String) -> MLFeatureValue? {
-        if (featureName == "input1") {
-            return MLFeatureValue(multiArray: input1)
+        if (featureName == "words") {
+            return MLFeatureValue(multiArray: words)
         }
         if (featureName == "lstm_1_h_in") {
             return lstm_1_h_in == nil ? nil : MLFeatureValue(multiArray: lstm_1_h_in!)
@@ -39,8 +39,8 @@ public class SentimentalAnalysisInput : MLFeatureProvider {
         return nil
     }
     
-    public init(input1: MLMultiArray, lstm_1_h_in: MLMultiArray? = nil, lstm_1_c_in: MLMultiArray? = nil) {
-        self.input1 = input1
+    public init(words: MLMultiArray, lstm_1_h_in: MLMultiArray? = nil, lstm_1_c_in: MLMultiArray? = nil) {
+        self.words = words
         self.lstm_1_h_in = lstm_1_h_in
         self.lstm_1_c_in = lstm_1_c_in
     }
@@ -55,18 +55,18 @@ public class SentimentalAnalysisOutput : MLFeatureProvider {
     private let provider : MLFeatureProvider
 
 
-    /// output1 as 1 element vector of doubles
-    public lazy var output1: MLMultiArray = {
-        [unowned self] in return self.provider.featureValue(for: "output1")!.multiArrayValue
+    /// Sentimental value for sequence of words from input as 1 element vector of doubles
+    lazy var sentiment: MLMultiArray = {
+        [unowned self] in return self.provider.featureValue(for: "sentiment")!.multiArrayValue
     }()!
 
     /// lstm_1_h_out as 100 element vector of doubles
-    public lazy var lstm_1_h_out: MLMultiArray = {
+    lazy var lstm_1_h_out: MLMultiArray = {
         [unowned self] in return self.provider.featureValue(for: "lstm_1_h_out")!.multiArrayValue
     }()!
 
     /// lstm_1_c_out as 100 element vector of doubles
-    public lazy var lstm_1_c_out: MLMultiArray = {
+    lazy var lstm_1_c_out: MLMultiArray = {
         [unowned self] in return self.provider.featureValue(for: "lstm_1_c_out")!.multiArrayValue
     }()!
 
@@ -78,8 +78,8 @@ public class SentimentalAnalysisOutput : MLFeatureProvider {
         return self.provider.featureValue(for: featureName)
     }
 
-    public init(output1: MLMultiArray, lstm_1_h_out: MLMultiArray, lstm_1_c_out: MLMultiArray) {
-        self.provider = try! MLDictionaryFeatureProvider(dictionary: ["output1" : MLFeatureValue(multiArray: output1), "lstm_1_h_out" : MLFeatureValue(multiArray: lstm_1_h_out), "lstm_1_c_out" : MLFeatureValue(multiArray: lstm_1_c_out)])
+    public init(sentiment: MLMultiArray, lstm_1_h_out: MLMultiArray, lstm_1_c_out: MLMultiArray) {
+        self.provider = try! MLDictionaryFeatureProvider(dictionary: ["sentiment" : MLFeatureValue(multiArray: sentiment), "lstm_1_h_out" : MLFeatureValue(multiArray: lstm_1_h_out), "lstm_1_c_out" : MLFeatureValue(multiArray: lstm_1_c_out)])
     }
 
     public init(features: MLFeatureProvider) {
@@ -94,7 +94,7 @@ public class SentimentalAnalysis {
     public var model: MLModel
 
 /// URL of model assuming it was installed in the same bundle as this class
-    public class var urlOfModelInThisBundle : URL {
+    class var urlOfModelInThisBundle : URL {
         let bundle = Bundle(for: SentimentalAnalysis.self)
         return bundle.url(forResource: "SentimentalAnalysis", withExtension:"mlmodelc")!
     }
@@ -156,7 +156,7 @@ public class SentimentalAnalysis {
         - throws: an NSError object that describes the problem
         - returns: the result of the prediction as SentimentalAnalysisOutput
     */
-    public func prediction(input: SentimentalAnalysisInput, options: MLPredictionOptions) throws -> SentimentalAnalysisOutput {
+    func prediction(input: SentimentalAnalysisInput, options: MLPredictionOptions) throws -> SentimentalAnalysisOutput {
         let outFeatures = try model.prediction(from: input, options:options)
         return SentimentalAnalysisOutput(features: outFeatures)
     }
@@ -164,14 +164,14 @@ public class SentimentalAnalysis {
     /**
         Make a prediction using the convenience interface
         - parameters:
-            - input1 as 1 element vector of doubles
+            - words: Sequence of IDs correspoding to words as 1 element vector of doubles
             - lstm_1_h_in as optional 100 element vector of doubles
             - lstm_1_c_in as optional 100 element vector of doubles
         - throws: an NSError object that describes the problem
         - returns: the result of the prediction as SentimentalAnalysisOutput
     */
-    public func prediction(input1: MLMultiArray, lstm_1_h_in: MLMultiArray?, lstm_1_c_in: MLMultiArray?) throws -> SentimentalAnalysisOutput {
-        let input_ = SentimentalAnalysisInput(input1: input1, lstm_1_h_in: lstm_1_h_in, lstm_1_c_in: lstm_1_c_in)
+    func prediction(words: MLMultiArray, lstm_1_h_in: MLMultiArray?, lstm_1_c_in: MLMultiArray?) throws -> SentimentalAnalysisOutput {
+        let input_ = SentimentalAnalysisInput(words: words, lstm_1_h_in: lstm_1_h_in, lstm_1_c_in: lstm_1_c_in)
         return try self.prediction(input: input_)
     }
 
@@ -184,7 +184,7 @@ public class SentimentalAnalysis {
         - returns: the result of the prediction as [SentimentalAnalysisOutput]
     */
     @available(macOS 10.14, iOS 12.0, tvOS 12.0, watchOS 5.0, *)
-    public func predictions(inputs: [SentimentalAnalysisInput], options: MLPredictionOptions = MLPredictionOptions()) throws -> [SentimentalAnalysisOutput] {
+    func predictions(inputs: [SentimentalAnalysisInput], options: MLPredictionOptions = MLPredictionOptions()) throws -> [SentimentalAnalysisOutput] {
         let batchIn = MLArrayBatchProvider(array: inputs)
         let batchOut = try model.predictions(from: batchIn, options: options)
         var results : [SentimentalAnalysisOutput] = []

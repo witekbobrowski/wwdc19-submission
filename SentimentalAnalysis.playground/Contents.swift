@@ -12,7 +12,7 @@ label.numberOfLines = 0
 
 let sentimentalAnalysis = SentimentalAnalysis()
 
-label.text = sentimentalAnalysis.model.description
+label.text = sentimentalAnalysis.model.modelDescription.metadata[.description] as? String
 
 // Present the view controller in the Live View window
 PlaygroundPage.current.liveView = label
