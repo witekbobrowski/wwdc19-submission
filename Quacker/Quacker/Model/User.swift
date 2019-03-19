@@ -12,5 +12,13 @@ struct User: Codable {
     let username: String
     let fullName: String
     let avatar: String
-    var quacks: [Quack]
+    var quacks = [Quack]()
+}
+
+extension User {
+    init(name: String, avatar: String) {
+        self.init(
+            username: name.lowercased(), fullName: name, avatar: avatar, quacks: []
+        )
+    }
 }
