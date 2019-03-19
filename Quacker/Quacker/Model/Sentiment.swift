@@ -1,5 +1,5 @@
 //
-//  Quack.swift
+//  Sentiment.swift
 //  Quacker
 //
 //  Created by Witek Bobrowski on 19/03/2019.
@@ -8,8 +8,6 @@
 
 import Foundation
 
-struct Quack: Codable {
-    let text: String
-    let date: Date
-    let sentiment: Sentiment
+struct Sentiment: Codable {
+    let value: Double
 }
