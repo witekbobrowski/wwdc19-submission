@@ -13,6 +13,7 @@
 		41C288A622419EA400AEBD83 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288A522419EA400AEBD83 /* HomeViewController.swift */; };
 		41C288A922419F6D00AEBD83 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288A822419F6D00AEBD83 /* FeedViewController.swift */; };
 		41C288AB2241A65800AEBD83 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288AA2241A65800AEBD83 /* User.swift */; };
+		41C288AD2241A6D500AEBD83 /* Quack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288AC2241A6D500AEBD83 /* Quack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		41C288A522419EA400AEBD83 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		41C288A822419F6D00AEBD83 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		41C288AA2241A65800AEBD83 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		41C288AC2241A6D500AEBD83 /* Quack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				41C288AA2241A65800AEBD83 /* User.swift */,
+				41C288AC2241A6D500AEBD83 /* Quack.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				41C2889222419DE600AEBD83 /* AppDelegate.swift in Sources */,
 				41C288A922419F6D00AEBD83 /* FeedViewController.swift in Sources */,
 				41C288A622419EA400AEBD83 /* HomeViewController.swift in Sources */,
+				41C288AD2241A6D500AEBD83 /* Quack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

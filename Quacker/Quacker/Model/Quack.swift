@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  Quack.swift
 //  Quacker
 //
 //  Created by Witek Bobrowski on 19/03/2019.
@@ -8,9 +8,8 @@
 
 import Foundation
 
-struct User: Codable {
-    let username: String
-    let fullName: String
-    let avatar: String
-    var quacks: [Quack]
+struct Quack: Codable {
+    let text: String
+    let date: Date
+//    let sentiment: Sentiment
 }

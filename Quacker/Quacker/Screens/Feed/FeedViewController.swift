@@ -10,7 +10,7 @@ import UIKit
 
 protocol FeedViewControllerDelegate: class {
     func feedViewController(
-        _ feedViewController: FeedViewController, didSelect quack: String
+        _ feedViewController: FeedViewController, didSelect quack: Quack
     )
 }
 
@@ -26,7 +26,7 @@ class FeedViewController: UIViewController {
         return tableView
     }()
 
-    private var quacks: [String] = []
+    private var quacks: [Quack] = []
 
     weak var delegate: FeedViewControllerDelegate?
 
@@ -66,7 +66,7 @@ extension FeedViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "UITableViewCell")
-        cell.textLabel?.text = quacks[indexPath.row]
+        cell.textLabel?.text = quacks[indexPath.row].text
         return cell
     }
 }
