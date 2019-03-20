@@ -18,21 +18,25 @@ class FeedCellHeaderViewController: UIViewController {
     }
     private let nameLabel: UILabel = create {
         $0.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        $0.textColor = StyleSheet.Color.textColor
         $0.setContentHuggingPriority(.required, for: .horizontal)
         $0.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
     }
     private let usernameLabel: UILabel = create {
         $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        $0.textColor = StyleSheet.Color.secondaryTextColor
         $0.setContentHuggingPriority(.required, for: .horizontal)
     }
     private let dotLabel: UILabel = create {
         $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        $0.textColor = StyleSheet.Color.secondaryTextColor
         $0.setContentHuggingPriority(.required, for: .horizontal)
         $0.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         $0.text = "·"
     }
     private let dateLabel: UILabel = create {
         $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        $0.textColor = StyleSheet.Color.secondaryTextColor
         $0.setContentHuggingPriority(.defaultLow, for: .horizontal)
         $0.setContentCompressionResistancePriority(.required, for: .horizontal)
     }

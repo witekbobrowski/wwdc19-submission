@@ -16,7 +16,10 @@ class FeedCellViewController: UIViewController {
     private let avatarLabel: UILabel = create {
         $0.font = UIFont.systemFont(ofSize: 40)
         $0.adjustsFontSizeToFitWidth = true
+        $0.clipsToBounds = true
         $0.textAlignment = .center
+        $0.layer.cornerRadius = 12
+        $0.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         $0.baselineAdjustment = .alignCenters
     }
     private var sentimentIconView: UIView {
@@ -27,10 +30,8 @@ class FeedCellViewController: UIViewController {
     }
     private let contentLabel: UILabel = create {
         $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        $0.textColor = StyleSheet.Color.textColor
         $0.numberOfLines = 0
-    }
-    private let separatorView: UIView = create {
-        $0.backgroundColor = .lightGray
     }
 
     var quack: Quack? { didSet { update(with: quack) } }
@@ -52,7 +53,7 @@ extension FeedCellViewController {
     }
 
     private func setupView() {
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
         addChild(sentimentIconViewController)
         sentimentIconViewController.didMove(toParent: self)
@@ -60,11 +61,10 @@ extension FeedCellViewController {
     }
 
     private func setupLayuot() {
-        [avatarLabel, headerView, contentLabel, sentimentIconView, separatorView]
-            .forEach(view.addSubview)
+        [avatarLabel, headerView, contentLabel, sentimentIconView].forEach(view.addSubview)
 
         NSLayoutConstraint.activate([
-            avatarLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
+            avatarLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 12),
             avatarLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
             avatarLabel.heightAnchor.constraint(equalToConstant: 44),
             avatarLabel.widthAnchor.constraint(equalTo: avatarLabel.heightAnchor, multiplier: 1),
@@ -74,19 +74,14 @@ extension FeedCellViewController {
             sentimentIconView.trailingAnchor.constraint(equalTo: avatarLabel.trailingAnchor, constant: -6),
             sentimentIconView.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -8),
 
-            headerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
+            headerView.topAnchor.constraint(equalTo: avatarLabel.topAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
-            headerView.leadingAnchor.constraint(equalTo: avatarLabel.trailingAnchor, constant: 4),
+            headerView.leadingAnchor.constraint(equalTo: avatarLabel.trailingAnchor, constant: 8),
 
             contentLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
             contentLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
             contentLabel.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 4),
             contentLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -12),
-
-            separatorView.leadingAnchor.constraint(equalTo: avatarLabel.leadingAnchor),
-            separatorView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
-            separatorView.heightAnchor.constraint(equalToConstant: 1),
-            separatorView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
 

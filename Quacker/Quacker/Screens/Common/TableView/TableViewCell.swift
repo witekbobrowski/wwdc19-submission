@@ -13,8 +13,18 @@ class TableViewCell: UITableViewCell {
     public var hostedView: UIView? {
         didSet {
             remove(old: oldValue)
-            configure(new: hostedView)
+            embed(new: hostedView)
         }
+    }
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupView()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupView()
     }
 
     override func prepareForReuse() {
@@ -22,7 +32,12 @@ class TableViewCell: UITableViewCell {
         hostedView = nil
     }
 
-    private func configure(new hostedView: UIView?) {
+}
+
+
+extension TableViewCell {
+
+    private func embed(new hostedView: UIView?) {
         guard let view = hostedView else { return }
         contentView.addSubview(view)
         NSLayoutConstraint.activate([
@@ -30,12 +45,16 @@ class TableViewCell: UITableViewCell {
             view.topAnchor.constraint(equalTo: contentView.topAnchor),
             view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        ])
+            ])
     }
 
     private func remove(old hostedView: UIView?) {
         guard let view = hostedView else { return }
         view.removeFromSuperview()
+    }
+
+    private func setupView() {
+        backgroundColor = .clear
     }
 
 }

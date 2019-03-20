@@ -22,7 +22,7 @@ class CircullarProgressView: UIView {
     }
     private let pointerShapeLayer: CAShapeLayer = create {
         $0.fillColor = UIColor.clear.cgColor
-        $0.strokeColor = UIColor.white.cgColor
+        $0.strokeColor = StyleSheet.Color.backgroundColor.cgColor
         $0.lineWidth = 1.5
     }
 

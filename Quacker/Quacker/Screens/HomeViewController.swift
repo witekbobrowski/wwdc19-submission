@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController {
     private func setupView() {
-        view.backgroundColor = .white
+        view.backgroundColor = StyleSheet.Color.backgroundColor
         addChild(feedViewController)
         feedViewController.didMove(toParent: self)
         view.addSubview(feedViewController.view)

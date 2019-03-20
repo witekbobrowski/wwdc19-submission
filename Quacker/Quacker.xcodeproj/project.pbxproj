@@ -27,6 +27,7 @@
 		41C288CC224295ED00AEBD83 /* FeedCellHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288CB224295ED00AEBD83 /* FeedCellHeaderViewController.swift */; };
 		41FBFEB82242D00F00B42439 /* SceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEB72242D00F00B42439 /* SceneViewController.swift */; };
 		41FBFEBA2242D20D00B42439 /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEB92242D20D00B42439 /* UIViewController+Child.swift */; };
+		41FBFEBC2242D69900B42439 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEBB2242D69900B42439 /* StyleSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		41C288CB224295ED00AEBD83 /* FeedCellHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellHeaderViewController.swift; sourceTree = "<group>"; };
 		41FBFEB72242D00F00B42439 /* SceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneViewController.swift; sourceTree = "<group>"; };
 		41FBFEB92242D20D00B42439 /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
+		41FBFEBB2242D69900B42439 /* StyleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				41C288B32242416900AEBD83 /* Extensions */,
+				41FBFEBB2242D69900B42439 /* StyleSheet.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				41C288C2224254DE00AEBD83 /* QuacksService.swift in Sources */,
 				41C288AB2241A65800AEBD83 /* User.swift in Sources */,
 				41C288C42242562600AEBD83 /* SentimentIconViewController.swift in Sources */,
+				41FBFEBC2242D69900B42439 /* StyleSheet.swift in Sources */,
 				41C2889222419DE600AEBD83 /* AppDelegate.swift in Sources */,
 				41C288BE2242455400AEBD83 /* UITableViewCell+Reusable.swift in Sources */,
 				41C288A922419F6D00AEBD83 /* FeedViewController.swift in Sources */,

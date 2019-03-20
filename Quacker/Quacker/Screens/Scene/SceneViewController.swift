@@ -10,6 +10,8 @@ import UIKit
 
 class SceneViewController: UIViewController {
 
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+
     var contentViewController: UIViewController? {
         didSet {
             remove(old: oldValue)
@@ -48,7 +50,7 @@ extension SceneViewController {
     }
 
     private func setupView() {
-        view.backgroundColor = .white
+        view.backgroundColor = StyleSheet.Color.backgroundColor
     }
 
 }

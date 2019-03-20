@@ -23,6 +23,7 @@ class SentimentIconViewController: UIViewController {
 
     private let valueLabel: UILabel = create {
         $0.font = UIFont.systemFont(ofSize: 10, weight: .medium)
+        $0.textColor = StyleSheet.Color.textColor
         $0.textAlignment = .center
     }
 
