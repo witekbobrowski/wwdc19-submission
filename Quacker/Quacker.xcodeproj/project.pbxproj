@@ -28,6 +28,7 @@
 		41FBFEB82242D00F00B42439 /* SceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEB72242D00F00B42439 /* SceneViewController.swift */; };
 		41FBFEBA2242D20D00B42439 /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEB92242D20D00B42439 /* UIViewController+Child.swift */; };
 		41FBFEBC2242D69900B42439 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEBB2242D69900B42439 /* StyleSheet.swift */; };
+		41FBFEBF2242DE8B00B42439 /* FeedCellAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEBE2242DE8B00B42439 /* FeedCellAvatarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		41FBFEB72242D00F00B42439 /* SceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneViewController.swift; sourceTree = "<group>"; };
 		41FBFEB92242D20D00B42439 /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
 		41FBFEBB2242D69900B42439 /* StyleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
+		41FBFEBE2242DE8B00B42439 /* FeedCellAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellAvatarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 		41C288B62242430400AEBD83 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				41FBFEBD2242DE7300B42439 /* Avatar */,
 				41C288CA224295D200AEBD83 /* Header */,
 				41C288C522425D7B00AEBD83 /* SentimentIcon */,
 				41C288B92242434E00AEBD83 /* FeedCellViewController.swift */,
@@ -206,6 +209,14 @@
 				41FBFEB72242D00F00B42439 /* SceneViewController.swift */,
 			);
 			path = Scene;
+			sourceTree = "<group>";
+		};
+		41FBFEBD2242DE7300B42439 /* Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				41FBFEBE2242DE8B00B42439 /* FeedCellAvatarViewController.swift */,
+			);
+			path = Avatar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +296,7 @@
 				41C288C2224254DE00AEBD83 /* QuacksService.swift in Sources */,
 				41C288AB2241A65800AEBD83 /* User.swift in Sources */,
 				41C288C42242562600AEBD83 /* SentimentIconViewController.swift in Sources */,
+				41FBFEBF2242DE8B00B42439 /* FeedCellAvatarViewController.swift in Sources */,
 				41FBFEBC2242D69900B42439 /* StyleSheet.swift in Sources */,
 				41C2889222419DE600AEBD83 /* AppDelegate.swift in Sources */,
 				41C288BE2242455400AEBD83 /* UITableViewCell+Reusable.swift in Sources */,

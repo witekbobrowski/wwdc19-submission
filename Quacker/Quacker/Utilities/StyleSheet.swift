@@ -11,7 +11,7 @@ import UIKit
 struct StyleSheet {
 
     struct Color {
-        static let backgroundColor = UIColor.blue
+        static let backgroundColor = UIColor.darkBlue
         static let textColor = UIColor.white
         static let secondaryTextColor = UIColor.white.withAlphaComponent(0.7)
     }

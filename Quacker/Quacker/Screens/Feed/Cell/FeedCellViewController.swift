@@ -10,17 +10,12 @@ import UIKit
 
 class FeedCellViewController: UIViewController {
 
+    private let avatarViewController = FeedCellAvatarViewController()
     private let sentimentIconViewController = SentimentIconViewController()
     private let headerViewController = FeedCellHeaderViewController()
 
-    private let avatarLabel: UILabel = create {
-        $0.font = UIFont.systemFont(ofSize: 40)
-        $0.adjustsFontSizeToFitWidth = true
-        $0.clipsToBounds = true
-        $0.textAlignment = .center
-        $0.layer.cornerRadius = 12
-        $0.backgroundColor = UIColor.white.withAlphaComponent(0.2)
-        $0.baselineAdjustment = .alignCenters
+    private var avatarView: UIView {
+        return avatarViewController.view
     }
     private var sentimentIconView: UIView {
         return sentimentIconViewController.view
@@ -46,7 +41,7 @@ class FeedCellViewController: UIViewController {
 extension FeedCellViewController {
 
     private func update(with quack: Quack?) {
-        avatarLabel.text = quack?.user.avatar
+        avatarViewController.avatar = quack?.user.avatar
         contentLabel.text = quack?.text
         headerViewController.quack = quack
         sentimentIconViewController.sentiment = quack?.sentiment
@@ -61,22 +56,22 @@ extension FeedCellViewController {
     }
 
     private func setupLayuot() {
-        [avatarLabel, headerView, contentLabel, sentimentIconView].forEach(view.addSubview)
+        [avatarView, headerView, contentLabel, sentimentIconView].forEach(view.addSubview)
 
         NSLayoutConstraint.activate([
-            avatarLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 12),
-            avatarLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
-            avatarLabel.heightAnchor.constraint(equalToConstant: 44),
-            avatarLabel.widthAnchor.constraint(equalTo: avatarLabel.heightAnchor, multiplier: 1),
+            avatarView.topAnchor.constraint(equalTo: view.topAnchor, constant: 12),
+            avatarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            avatarView.heightAnchor.constraint(equalToConstant: 44),
+            avatarView.widthAnchor.constraint(equalTo: avatarView.heightAnchor, multiplier: 1),
 
-            sentimentIconView.leadingAnchor.constraint(equalTo: avatarLabel.leadingAnchor, constant: 6),
-            sentimentIconView.topAnchor.constraint(equalTo: avatarLabel.bottomAnchor, constant: 8),
-            sentimentIconView.trailingAnchor.constraint(equalTo: avatarLabel.trailingAnchor, constant: -6),
+            sentimentIconView.leadingAnchor.constraint(equalTo: avatarView.leadingAnchor, constant: 6),
+            sentimentIconView.topAnchor.constraint(equalTo: avatarView.bottomAnchor, constant: 8),
+            sentimentIconView.trailingAnchor.constraint(equalTo: avatarView.trailingAnchor, constant: -6),
             sentimentIconView.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -8),
 
-            headerView.topAnchor.constraint(equalTo: avatarLabel.topAnchor),
+            headerView.topAnchor.constraint(equalTo: avatarView.topAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
-            headerView.leadingAnchor.constraint(equalTo: avatarLabel.trailingAnchor, constant: 8),
+            headerView.leadingAnchor.constraint(equalTo: avatarView.trailingAnchor, constant: 8),
 
             contentLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
             contentLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
