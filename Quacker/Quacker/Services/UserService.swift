@@ -19,7 +19,7 @@ class UserService {
 }
 
 // The most epic user base
-private extension User {
+extension User {
     static var 👽: User { return User(name: "Alien", avatar: "👽") }
     static var 🐻: User { return User(name: "Bear", avatar: "🐻") }
     static var 🐱: User { return User(name: "Cat", avatar: "🐱") }

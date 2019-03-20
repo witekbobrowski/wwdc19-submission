@@ -25,6 +25,12 @@ class TableViewCell: UITableViewCell {
     private func configure(new hostedView: UIView?) {
         guard let view = hostedView else { return }
         contentView.addSubview(view)
+        NSLayoutConstraint.activate([
+            view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            view.topAnchor.constraint(equalTo: contentView.topAnchor),
+            view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
     }
 
     private func remove(old hostedView: UIView?) {

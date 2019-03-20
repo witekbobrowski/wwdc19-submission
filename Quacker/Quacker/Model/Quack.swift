@@ -12,4 +12,5 @@ struct Quack: Codable {
     let text: String
     let date: Date
     let sentiment: Sentiment
+    let user: User
 }

@@ -32,8 +32,10 @@ class FeedViewController: UIViewController {
 
     var quacks: [Quack] = [] {
         didSet {
-            contentViewControllers = quacks.map { _ in
-                FeedCellViewController()
+            contentViewControllers = quacks.map { quack in
+                let viewcontroller = FeedCellViewController()
+                viewcontroller.quack = quack
+                return viewcontroller
             }
         }
     }
@@ -43,6 +45,7 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        quacks = []
     }
 
 }
