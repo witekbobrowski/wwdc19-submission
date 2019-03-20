@@ -10,7 +10,11 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    private let headerViewController = HomeHeaderViewController()
     private let feedViewController = FeedViewController()
+
+    private var headerView: UIView { return headerViewController.view }
+    private var feedView: UIView { return feedViewController.view }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +26,19 @@ class HomeViewController: UIViewController {
 extension HomeViewController {
     private func setupView() {
         view.backgroundColor = StyleSheet.Color.backgroundColor
-        addChild(feedViewController)
-        feedViewController.didMove(toParent: self)
-        view.addSubview(feedViewController.view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        [headerViewController, feedViewController].forEach(add)
+        [headerView, feedView].forEach(view.addSubview)
         NSLayoutConstraint.activate([
-            feedViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            feedViewController.view.topAnchor.constraint(equalTo: view.topAnchor),
-            feedViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            feedViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            headerView.topAnchor.constraint(equalTo: view.topAnchor),
+            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            headerView.heightAnchor.constraint(equalToConstant: 64),
+
+            feedView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            feedView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+            feedView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            feedView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 }

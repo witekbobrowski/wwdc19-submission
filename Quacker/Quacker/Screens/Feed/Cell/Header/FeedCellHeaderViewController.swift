@@ -15,7 +15,7 @@ class FeedCellHeaderViewController: UIViewController {
     private let stackView: UIStackView = create {
         $0.alignment = .center
         $0.distribution = .fillProportionally
-        $0.spacing = 2
+        $0.spacing = 4
         $0.axis = .horizontal
     }
     private let nameLabel: UILabel = create {

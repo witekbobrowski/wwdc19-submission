@@ -30,6 +30,7 @@
 		41FBFEBC2242D69900B42439 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEBB2242D69900B42439 /* StyleSheet.swift */; };
 		41FBFEBF2242DE8B00B42439 /* FeedCellAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEBE2242DE8B00B42439 /* FeedCellAvatarViewController.swift */; };
 		41FBFEC12242E0EB00B42439 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEC02242E0EB00B42439 /* TimerViewController.swift */; };
+		41FBFEC42242EB7000B42439 /* HomeHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEC32242EB7000B42439 /* HomeHeaderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		41FBFEBB2242D69900B42439 /* StyleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
 		41FBFEBE2242DE8B00B42439 /* FeedCellAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellAvatarViewController.swift; sourceTree = "<group>"; };
 		41FBFEC02242E0EB00B42439 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		41FBFEC32242EB7000B42439 /* HomeHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +107,11 @@
 		41C288A322419E8300AEBD83 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				41FBFEB62242CFF900B42439 /* Scene */,
-				41C288BF224246BB00AEBD83 /* Common */,
 				41C288A522419EA400AEBD83 /* HomeViewController.swift */,
+				41C288BF224246BB00AEBD83 /* Common */,
 				41C288A722419ECB00AEBD83 /* Feed */,
+				41FBFEC22242EB4000B42439 /* Header */,
+				41FBFEB62242CFF900B42439 /* Scene */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -222,6 +225,14 @@
 			path = Avatar;
 			sourceTree = "<group>";
 		};
+		41FBFEC22242EB4000B42439 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				41FBFEC32242EB7000B42439 /* HomeHeaderViewController.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -300,6 +311,7 @@
 				41C288AB2241A65800AEBD83 /* User.swift in Sources */,
 				41C288C42242562600AEBD83 /* SentimentIconViewController.swift in Sources */,
 				41FBFEBF2242DE8B00B42439 /* FeedCellAvatarViewController.swift in Sources */,
+				41FBFEC42242EB7000B42439 /* HomeHeaderViewController.swift in Sources */,
 				41FBFEBC2242D69900B42439 /* StyleSheet.swift in Sources */,
 				41C2889222419DE600AEBD83 /* AppDelegate.swift in Sources */,
 				41FBFEC12242E0EB00B42439 /* TimerViewController.swift in Sources */,

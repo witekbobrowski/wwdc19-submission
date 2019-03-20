@@ -49,8 +49,8 @@ class FeedViewController: UIViewController {
 
 extension FeedViewController {
     private func setupView() {
-        navigationItem.title = "Latest Quacks"
         view.addSubview(tableView)
+        view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -59,14 +59,8 @@ extension FeedViewController {
         ])
     }
     private func reloadContent(old: [UIViewController], new: [UIViewController]) {
-        old.forEach { viewController in
-            viewController.willMove(toParent: nil)
-            viewController.removeFromParent()
-        }
-        new.forEach { viewController in
-            addChild(viewController)
-            viewController.didMove(toParent: self)
-        }
+        old.forEach { $0.moveFromParent() }
+        new.forEach(add)
         tableView.reloadData()
     }
 }
