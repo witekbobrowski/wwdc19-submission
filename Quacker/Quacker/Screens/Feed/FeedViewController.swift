@@ -21,9 +21,22 @@ class FeedViewController: UIViewController {
         $0.delegate = self
         $0.dataSource = self
         $0.separatorStyle = .none
+        $0.register(TableViewCell.self)
     }
 
-    private var quacks: [Quack] = []
+    private var contentViewControllers = [UIViewController]() {
+        didSet {
+            reloadContent(old: oldValue, new: contentViewControllers)
+        }
+    }
+
+    var quacks: [Quack] = [] {
+        didSet {
+            contentViewControllers = quacks.map { _ in
+                FeedCellViewController()
+            }
+        }
+    }
 
     weak var delegate: FeedViewControllerDelegate?
 
@@ -45,6 +58,17 @@ extension FeedViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+    private func reloadContent(old: [UIViewController], new: [UIViewController]) {
+        old.forEach { viewController in
+            viewController.willMove(toParent: nil)
+            viewController.removeFromParent()
+        }
+        new.forEach { viewController in
+            addChild(viewController)
+            viewController.didMove(toParent: self)
+        }
+        tableView.reloadData()
+    }
 }
 
 extension FeedViewController: UITableViewDelegate {
@@ -59,11 +83,11 @@ extension FeedViewController: UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return quacks.count
+        return contentViewControllers.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "UITableViewCell")
-        cell.textLabel?.text = quacks[indexPath.row].text
+        let cell = tableView.dequeue(TableViewCell.self, for: indexPath)
+        cell.hostedView = contentViewControllers[indexPath.row].view
         return cell
     }
 }

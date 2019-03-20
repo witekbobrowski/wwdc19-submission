@@ -16,7 +16,10 @@
 		41C288AD2241A6D500AEBD83 /* Quack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288AC2241A6D500AEBD83 /* Quack.swift */; };
 		41C288AF2241A74800AEBD83 /* Sentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288AE2241A74800AEBD83 /* Sentiment.swift */; };
 		41C288B22241A82000AEBD83 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288B12241A82000AEBD83 /* UserService.swift */; };
-		41C288B52242418400AEBD83 /* UIView+create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288B42242418400AEBD83 /* UIView+create.swift */; };
+		41C288B52242418400AEBD83 /* UIView+Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288B42242418400AEBD83 /* UIView+Create.swift */; };
+		41C288B82242432F00AEBD83 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288B72242432F00AEBD83 /* TableViewCell.swift */; };
+		41C288BA2242434E00AEBD83 /* FeedCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288B92242434E00AEBD83 /* FeedCellViewController.swift */; };
+		41C288BE2242455400AEBD83 /* UITableViewCell+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288BD2242455400AEBD83 /* UITableViewCell+Reusable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +34,10 @@
 		41C288AC2241A6D500AEBD83 /* Quack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quack.swift; sourceTree = "<group>"; };
 		41C288AE2241A74800AEBD83 /* Sentiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentiment.swift; sourceTree = "<group>"; };
 		41C288B12241A82000AEBD83 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
-		41C288B42242418400AEBD83 /* UIView+create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+create.swift"; sourceTree = "<group>"; };
+		41C288B42242418400AEBD83 /* UIView+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Create.swift"; sourceTree = "<group>"; };
+		41C288B72242432F00AEBD83 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		41C288B92242434E00AEBD83 /* FeedCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellViewController.swift; sourceTree = "<group>"; };
+		41C288BD2242455400AEBD83 /* UITableViewCell+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Reusable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +73,7 @@
 				41C288A322419E8300AEBD83 /* Screens */,
 				41C288A422419E9200AEBD83 /* Model */,
 				41C288B02241A7B200AEBD83 /* Services */,
-				41C288B32242416900AEBD83 /* Extensions */,
+				41C288BB2242450D00AEBD83 /* Utilities */,
 				41C2889122419DE600AEBD83 /* AppDelegate.swift */,
 				41C2889822419DE800AEBD83 /* Assets.xcassets */,
 				41C2889A22419DE800AEBD83 /* LaunchScreen.storyboard */,
@@ -79,6 +85,7 @@
 		41C288A322419E8300AEBD83 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				41C288BF224246BB00AEBD83 /* Common */,
 				41C288A522419EA400AEBD83 /* HomeViewController.swift */,
 				41C288A722419ECB00AEBD83 /* Feed */,
 			);
@@ -98,6 +105,7 @@
 		41C288A722419ECB00AEBD83 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				41C288B62242430400AEBD83 /* Cell */,
 				41C288A822419F6D00AEBD83 /* FeedViewController.swift */,
 			);
 			path = Feed;
@@ -114,9 +122,42 @@
 		41C288B32242416900AEBD83 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				41C288B42242418400AEBD83 /* UIView+create.swift */,
+				41C288B42242418400AEBD83 /* UIView+Create.swift */,
+				41C288BD2242455400AEBD83 /* UITableViewCell+Reusable.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		41C288B62242430400AEBD83 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				41C288B92242434E00AEBD83 /* FeedCellViewController.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		41C288BB2242450D00AEBD83 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				41C288B32242416900AEBD83 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		41C288BF224246BB00AEBD83 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				41C288C0224246C200AEBD83 /* TableView */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		41C288C0224246C200AEBD83 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				41C288B72242432F00AEBD83 /* TableViewCell.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,12 +230,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41C288B52242418400AEBD83 /* UIView+create.swift in Sources */,
+				41C288BA2242434E00AEBD83 /* FeedCellViewController.swift in Sources */,
+				41C288B52242418400AEBD83 /* UIView+Create.swift in Sources */,
 				41C288B22241A82000AEBD83 /* UserService.swift in Sources */,
 				41C288AB2241A65800AEBD83 /* User.swift in Sources */,
 				41C2889222419DE600AEBD83 /* AppDelegate.swift in Sources */,
+				41C288BE2242455400AEBD83 /* UITableViewCell+Reusable.swift in Sources */,
 				41C288A922419F6D00AEBD83 /* FeedViewController.swift in Sources */,
 				41C288A622419EA400AEBD83 /* HomeViewController.swift in Sources */,
+				41C288B82242432F00AEBD83 /* TableViewCell.swift in Sources */,
 				41C288AD2241A6D500AEBD83 /* Quack.swift in Sources */,
 				41C288AF2241A74800AEBD83 /* Sentiment.swift in Sources */,
 			);
