@@ -21,6 +21,7 @@
 		41C288BA2242434E00AEBD83 /* FeedCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288B92242434E00AEBD83 /* FeedCellViewController.swift */; };
 		41C288BE2242455400AEBD83 /* UITableViewCell+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288BD2242455400AEBD83 /* UITableViewCell+Reusable.swift */; };
 		41C288C2224254DE00AEBD83 /* QuacksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288C1224254DE00AEBD83 /* QuacksService.swift */; };
+		41C288C42242562600AEBD83 /* SentimentIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288C32242562600AEBD83 /* SentimentIconViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		41C288B92242434E00AEBD83 /* FeedCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellViewController.swift; sourceTree = "<group>"; };
 		41C288BD2242455400AEBD83 /* UITableViewCell+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Reusable.swift"; sourceTree = "<group>"; };
 		41C288C1224254DE00AEBD83 /* QuacksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuacksService.swift; sourceTree = "<group>"; };
+		41C288C32242562600AEBD83 /* SentimentIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimentIconViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				41C288B92242434E00AEBD83 /* FeedCellViewController.swift */,
+				41C288C32242562600AEBD83 /* SentimentIconViewController.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				41C288B22241A82000AEBD83 /* UserService.swift in Sources */,
 				41C288C2224254DE00AEBD83 /* QuacksService.swift in Sources */,
 				41C288AB2241A65800AEBD83 /* User.swift in Sources */,
+				41C288C42242562600AEBD83 /* SentimentIconViewController.swift in Sources */,
 				41C2889222419DE600AEBD83 /* AppDelegate.swift in Sources */,
 				41C288BE2242455400AEBD83 /* UITableViewCell+Reusable.swift in Sources */,
 				41C288A922419F6D00AEBD83 /* FeedViewController.swift in Sources */,

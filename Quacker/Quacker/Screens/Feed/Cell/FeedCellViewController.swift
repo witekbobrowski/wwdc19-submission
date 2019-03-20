@@ -10,14 +10,16 @@ import UIKit
 
 class FeedCellViewController: UIViewController {
 
+    private let sentimentIconViewController = SentimentIconViewController()
+
     private let avatarLabel: UILabel = create {
         $0.font = UIFont.systemFont(ofSize: 40)
         $0.adjustsFontSizeToFitWidth = true
+        $0.textAlignment = .center
     }
 
     private let stackView: UIStackView = create {
-        $0.alignment = .fill
-        $0.distribution = .fill
+        $0.alignment = .center
         $0.spacing = 2
         $0.axis = .horizontal
     }
@@ -33,11 +35,15 @@ class FeedCellViewController: UIViewController {
     }
     private let dateLabel: UILabel = create {
         $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        $0.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
 
     private let contentLabel: UILabel = create {
         $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         $0.numberOfLines = 0
+    }
+    private var sentimentIconView: UIView {
+        return sentimentIconViewController.view
     }
 
     var quack: Quack? { didSet { update(with: quack) } }
@@ -57,16 +63,19 @@ extension FeedCellViewController {
         usernameLabel.text = (quack?.user.username).map { "@\($0)" }
         dateLabel.text = "1h"
         contentLabel.text = quack?.text
+        sentimentIconViewController.sentiment = quack?.sentiment
     }
 
     private func setupView() {
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
+        addChild(sentimentIconViewController)
+        sentimentIconViewController.didMove(toParent: self)
         setupLayuot()
     }
 
     private func setupLayuot() {
-        [avatarLabel, stackView, contentLabel].forEach(view.addSubview)
+        [avatarLabel, stackView, contentLabel, sentimentIconView].forEach(view.addSubview)
         [nameLabel, usernameLabel, dotLabel, dateLabel].forEach(stackView.addArrangedSubview)
         NSLayoutConstraint.activate([
             avatarLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 2),
@@ -75,13 +84,17 @@ extension FeedCellViewController {
             avatarLabel.widthAnchor.constraint(equalTo: avatarLabel.heightAnchor, multiplier: 1),
 
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 4),
-            stackView.trailingAnchor.constraint(lessThanOrEqualToSystemSpacingAfter: view.trailingAnchor, multiplier: -8),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
             stackView.leadingAnchor.constraint(equalTo: avatarLabel.trailingAnchor, constant: 4),
 
-            contentLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            contentLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
             contentLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
             contentLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 4),
-            contentLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -4),
+
+            sentimentIconView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            sentimentIconView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -4),
+            sentimentIconView.heightAnchor.constraint(equalToConstant: 36),
+            sentimentIconView.centerYAnchor.constraint(equalTo: contentLabel.bottomAnchor, constant: 8)
         ])
     }
 
