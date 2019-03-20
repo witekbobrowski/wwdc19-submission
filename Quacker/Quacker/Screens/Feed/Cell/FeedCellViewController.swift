@@ -16,6 +16,10 @@ class FeedCellViewController: UIViewController {
         $0.font = UIFont.systemFont(ofSize: 40)
         $0.adjustsFontSizeToFitWidth = true
         $0.textAlignment = .center
+        $0.baselineAdjustment = .alignCenters
+    }
+    private var sentimentIconView: UIView {
+        return sentimentIconViewController.view
     }
 
     private let stackView: UIStackView = create {
@@ -41,9 +45,6 @@ class FeedCellViewController: UIViewController {
     private let contentLabel: UILabel = create {
         $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         $0.numberOfLines = 0
-    }
-    private var sentimentIconView: UIView {
-        return sentimentIconViewController.view
     }
 
     var quack: Quack? { didSet { update(with: quack) } }
@@ -83,6 +84,11 @@ extension FeedCellViewController {
             avatarLabel.heightAnchor.constraint(equalToConstant: 44),
             avatarLabel.widthAnchor.constraint(equalTo: avatarLabel.heightAnchor, multiplier: 1),
 
+            sentimentIconView.leadingAnchor.constraint(equalTo: avatarLabel.leadingAnchor, constant: 6),
+            sentimentIconView.topAnchor.constraint(equalTo: avatarLabel.bottomAnchor, constant: 8),
+            sentimentIconView.trailingAnchor.constraint(equalTo: avatarLabel.trailingAnchor, constant: -6),
+            sentimentIconView.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -8),
+
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 4),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
             stackView.leadingAnchor.constraint(equalTo: avatarLabel.trailingAnchor, constant: 4),
@@ -90,11 +96,7 @@ extension FeedCellViewController {
             contentLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
             contentLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
             contentLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 4),
-
-            sentimentIconView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
-            sentimentIconView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -4),
-            sentimentIconView.heightAnchor.constraint(equalToConstant: 36),
-            sentimentIconView.centerYAnchor.constraint(equalTo: contentLabel.bottomAnchor, constant: 8)
+            contentLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8),
         ])
     }
 
