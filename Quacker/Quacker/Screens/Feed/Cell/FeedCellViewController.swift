@@ -50,8 +50,7 @@ extension FeedCellViewController {
     private func setupView() {
         view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
-        addChild(sentimentIconViewController)
-        sentimentIconViewController.didMove(toParent: self)
+        [avatarViewController, sentimentIconViewController, headerViewController].forEach(add)
         setupLayuot()
     }
 

@@ -29,6 +29,7 @@
 		41FBFEBA2242D20D00B42439 /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEB92242D20D00B42439 /* UIViewController+Child.swift */; };
 		41FBFEBC2242D69900B42439 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEBB2242D69900B42439 /* StyleSheet.swift */; };
 		41FBFEBF2242DE8B00B42439 /* FeedCellAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEBE2242DE8B00B42439 /* FeedCellAvatarViewController.swift */; };
+		41FBFEC12242E0EB00B42439 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEC02242E0EB00B42439 /* TimerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		41FBFEB92242D20D00B42439 /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
 		41FBFEBB2242D69900B42439 /* StyleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
 		41FBFEBE2242DE8B00B42439 /* FeedCellAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellAvatarViewController.swift; sourceTree = "<group>"; };
+		41FBFEC02242E0EB00B42439 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 		41C288CA224295D200AEBD83 /* Header */ = {
 			isa = PBXGroup;
 			children = (
+				41FBFEC02242E0EB00B42439 /* TimerViewController.swift */,
 				41C288CB224295ED00AEBD83 /* FeedCellHeaderViewController.swift */,
 			);
 			path = Header;
@@ -299,6 +302,7 @@
 				41FBFEBF2242DE8B00B42439 /* FeedCellAvatarViewController.swift in Sources */,
 				41FBFEBC2242D69900B42439 /* StyleSheet.swift in Sources */,
 				41C2889222419DE600AEBD83 /* AppDelegate.swift in Sources */,
+				41FBFEC12242E0EB00B42439 /* TimerViewController.swift in Sources */,
 				41C288BE2242455400AEBD83 /* UITableViewCell+Reusable.swift in Sources */,
 				41C288A922419F6D00AEBD83 /* FeedViewController.swift in Sources */,
 				41C288C92242607800AEBD83 /* CALayer+Create.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-func create<View: UIView>(configure: (View) -> Void) -> View {
+func create<View: UIView>(configure: (View) -> Void = { _ in }) -> View {
     let view = View()
     view.translatesAutoresizingMaskIntoConstraints = false
     configure(view)

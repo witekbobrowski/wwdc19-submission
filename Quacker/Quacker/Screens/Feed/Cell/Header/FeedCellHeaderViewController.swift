@@ -10,6 +10,8 @@ import UIKit
 
 class FeedCellHeaderViewController: UIViewController {
 
+    private let timerViewController = TimerViewController()
+
     private let stackView: UIStackView = create {
         $0.alignment = .center
         $0.distribution = .fillProportionally
@@ -34,12 +36,6 @@ class FeedCellHeaderViewController: UIViewController {
         $0.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         $0.text = "·"
     }
-    private let dateLabel: UILabel = create {
-        $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        $0.textColor = StyleSheet.Color.secondaryTextColor
-        $0.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        $0.setContentCompressionResistancePriority(.required, for: .horizontal)
-    }
 
     var quack: Quack? { didSet { update(with: quack) } }
 
@@ -55,18 +51,20 @@ extension FeedCellHeaderViewController {
     private func update(with quack: Quack?) {
         nameLabel.text = quack?.user.fullName
         usernameLabel.text = (quack?.user.username).map { "@\($0)" }
-        dateLabel.text = "1h"
+        timerViewController.date = quack?.date
     }
 
     private func setupView() {
         view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
+        add(child: timerViewController)
         setupLayuot()
     }
 
     private func setupLayuot() {
         view.addSubview(stackView)
-        [nameLabel, usernameLabel, dotLabel, dateLabel].forEach(stackView.addArrangedSubview)
+        [nameLabel, usernameLabel, dotLabel, timerViewController.view]
+            .forEach(stackView.addArrangedSubview)
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.topAnchor),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
