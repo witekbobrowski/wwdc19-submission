@@ -29,6 +29,9 @@ class FeedCellViewController: UIViewController {
         $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         $0.numberOfLines = 0
     }
+    private let separatorView: UIView = create {
+        $0.backgroundColor = .lightGray
+    }
 
     var quack: Quack? { didSet { update(with: quack) } }
 
@@ -57,10 +60,11 @@ extension FeedCellViewController {
     }
 
     private func setupLayuot() {
-        [avatarLabel, headerView, contentLabel, sentimentIconView].forEach(view.addSubview)
+        [avatarLabel, headerView, contentLabel, sentimentIconView, separatorView]
+            .forEach(view.addSubview)
 
         NSLayoutConstraint.activate([
-            avatarLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 2),
+            avatarLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
             avatarLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
             avatarLabel.heightAnchor.constraint(equalToConstant: 44),
             avatarLabel.widthAnchor.constraint(equalTo: avatarLabel.heightAnchor, multiplier: 1),
@@ -70,14 +74,19 @@ extension FeedCellViewController {
             sentimentIconView.trailingAnchor.constraint(equalTo: avatarLabel.trailingAnchor, constant: -6),
             sentimentIconView.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -8),
 
-            headerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 4),
+            headerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
             headerView.leadingAnchor.constraint(equalTo: avatarLabel.trailingAnchor, constant: 4),
 
             contentLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
             contentLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
             contentLabel.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 4),
-            contentLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8),
+            contentLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -12),
+
+            separatorView.leadingAnchor.constraint(equalTo: avatarLabel.leadingAnchor),
+            separatorView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
+            separatorView.heightAnchor.constraint(equalToConstant: 1),
+            separatorView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
 
