@@ -24,19 +24,11 @@ class FeedViewController: UIViewController {
         $0.register(TableViewCell.self)
     }
 
+    private let quacksService = QuacksService()
+
     private var contentViewControllers = [UIViewController]() {
         didSet {
             reloadContent(old: oldValue, new: contentViewControllers)
-        }
-    }
-
-    var quacks: [Quack] = [] {
-        didSet {
-            contentViewControllers = quacks.map { quack in
-                let viewcontroller = FeedCellViewController()
-                viewcontroller.quack = quack
-                return viewcontroller
-            }
         }
     }
 
@@ -45,7 +37,11 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        quacks = []
+        contentViewControllers = quacksService.fetch().map { quack in
+            let viewcontroller = FeedCellViewController()
+            viewcontroller.quack = quack
+            return viewcontroller
+        }
     }
 
 }
@@ -77,7 +73,11 @@ extension FeedViewController {
 extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        delegate?.feedViewController(self, didSelect: quacks[indexPath.row])
+        guard
+            let viewController = contentViewControllers[indexPath.row] as? FeedCellViewController,
+            let quack = viewController.quack
+        else { return }
+        delegate?.feedViewController(self, didSelect: quack)
     }
 }
 

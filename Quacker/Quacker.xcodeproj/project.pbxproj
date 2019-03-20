@@ -20,6 +20,7 @@
 		41C288B82242432F00AEBD83 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288B72242432F00AEBD83 /* TableViewCell.swift */; };
 		41C288BA2242434E00AEBD83 /* FeedCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288B92242434E00AEBD83 /* FeedCellViewController.swift */; };
 		41C288BE2242455400AEBD83 /* UITableViewCell+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288BD2242455400AEBD83 /* UITableViewCell+Reusable.swift */; };
+		41C288C2224254DE00AEBD83 /* QuacksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288C1224254DE00AEBD83 /* QuacksService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		41C288B72242432F00AEBD83 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		41C288B92242434E00AEBD83 /* FeedCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellViewController.swift; sourceTree = "<group>"; };
 		41C288BD2242455400AEBD83 /* UITableViewCell+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Reusable.swift"; sourceTree = "<group>"; };
+		41C288C1224254DE00AEBD83 /* QuacksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuacksService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				41C288B12241A82000AEBD83 /* UserService.swift */,
+				41C288C1224254DE00AEBD83 /* QuacksService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				41C288BA2242434E00AEBD83 /* FeedCellViewController.swift in Sources */,
 				41C288B52242418400AEBD83 /* UIView+Create.swift in Sources */,
 				41C288B22241A82000AEBD83 /* UserService.swift in Sources */,
+				41C288C2224254DE00AEBD83 /* QuacksService.swift in Sources */,
 				41C288AB2241A65800AEBD83 /* User.swift in Sources */,
 				41C2889222419DE600AEBD83 /* AppDelegate.swift in Sources */,
 				41C288BE2242455400AEBD83 /* UITableViewCell+Reusable.swift in Sources */,
