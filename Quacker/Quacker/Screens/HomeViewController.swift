@@ -23,6 +23,7 @@ extension HomeViewController {
     private func setupView() {
         view.backgroundColor = .white
         addChild(feedViewController)
+        feedViewController.didMove(toParent: self)
         view.addSubview(feedViewController.view)
         NSLayoutConstraint.activate([
             feedViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),

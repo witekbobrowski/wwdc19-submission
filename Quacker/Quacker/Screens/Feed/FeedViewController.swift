@@ -16,15 +16,12 @@ protocol FeedViewControllerDelegate: class {
 
 class FeedViewController: UIViewController {
 
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.estimatedRowHeight = 80
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.separatorStyle = .none
-        return tableView
-    }()
+    private lazy var tableView: UITableView = create {
+        $0.estimatedRowHeight = 80
+        $0.delegate = self
+        $0.dataSource = self
+        $0.separatorStyle = .none
+    }
 
     private var quacks: [Quack] = []
 

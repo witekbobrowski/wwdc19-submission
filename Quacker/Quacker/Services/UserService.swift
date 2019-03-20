@@ -13,7 +13,7 @@ class UserService {
         return [
             User.👽, User.🐻, User.🐱, User.🐔, User.🐶, User.🐲, User.🦊,
             User.👻, User.🐨, User.🦁, User.🐵, User.🐼, User.🐷, User.💩,
-            User.🐰, User.🤖, User.💀, User.🐯, User.🦖
+            User.🐰, User.🤖, User.💀, User.🐯, User.🦖, User.🦄
         ]
     }
 }
