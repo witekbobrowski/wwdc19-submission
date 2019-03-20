@@ -25,6 +25,8 @@
 		41C288C722425D9400AEBD83 /* CircullarProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288C622425D9400AEBD83 /* CircullarProgressView.swift */; };
 		41C288C92242607800AEBD83 /* CALayer+Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288C82242607800AEBD83 /* CALayer+Create.swift */; };
 		41C288CC224295ED00AEBD83 /* FeedCellHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288CB224295ED00AEBD83 /* FeedCellHeaderViewController.swift */; };
+		41FBFEB82242D00F00B42439 /* SceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEB72242D00F00B42439 /* SceneViewController.swift */; };
+		41FBFEBA2242D20D00B42439 /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEB92242D20D00B42439 /* UIViewController+Child.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		41C288C622425D9400AEBD83 /* CircullarProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircullarProgressView.swift; sourceTree = "<group>"; };
 		41C288C82242607800AEBD83 /* CALayer+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Create.swift"; sourceTree = "<group>"; };
 		41C288CB224295ED00AEBD83 /* FeedCellHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellHeaderViewController.swift; sourceTree = "<group>"; };
+		41FBFEB72242D00F00B42439 /* SceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneViewController.swift; sourceTree = "<group>"; };
+		41FBFEB92242D20D00B42439 /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 		41C288A322419E8300AEBD83 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				41FBFEB62242CFF900B42439 /* Scene */,
 				41C288BF224246BB00AEBD83 /* Common */,
 				41C288A522419EA400AEBD83 /* HomeViewController.swift */,
 				41C288A722419ECB00AEBD83 /* Feed */,
@@ -136,6 +141,7 @@
 				41C288B42242418400AEBD83 /* UIView+Create.swift */,
 				41C288C82242607800AEBD83 /* CALayer+Create.swift */,
 				41C288BD2242455400AEBD83 /* UITableViewCell+Reusable.swift */,
+				41FBFEB92242D20D00B42439 /* UIViewController+Child.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -189,6 +195,14 @@
 				41C288CB224295ED00AEBD83 /* FeedCellHeaderViewController.swift */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		41FBFEB62242CFF900B42439 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				41FBFEB72242D00F00B42439 /* SceneViewController.swift */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +278,7 @@
 				41C288BA2242434E00AEBD83 /* FeedCellViewController.swift in Sources */,
 				41C288B52242418400AEBD83 /* UIView+Create.swift in Sources */,
 				41C288B22241A82000AEBD83 /* UserService.swift in Sources */,
+				41FBFEB82242D00F00B42439 /* SceneViewController.swift in Sources */,
 				41C288C2224254DE00AEBD83 /* QuacksService.swift in Sources */,
 				41C288AB2241A65800AEBD83 /* User.swift in Sources */,
 				41C288C42242562600AEBD83 /* SentimentIconViewController.swift in Sources */,
@@ -277,6 +292,7 @@
 				41C288CC224295ED00AEBD83 /* FeedCellHeaderViewController.swift in Sources */,
 				41C288AD2241A6D500AEBD83 /* Quack.swift in Sources */,
 				41C288AF2241A74800AEBD83 /* Sentiment.swift in Sources */,
+				41FBFEBA2242D20D00B42439 /* UIViewController+Child.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
