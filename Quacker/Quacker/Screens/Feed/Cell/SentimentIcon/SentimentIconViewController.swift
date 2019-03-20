@@ -38,9 +38,11 @@ class SentimentIconViewController: UIViewController {
 extension SentimentIconViewController {
 
     private func update(with sentiment: Sentiment?) {
-        iconLabel.text = "😐"
-        valueLabel.text = "50%"
-        progressView.value = sentiment?.value
+        iconLabel.text = sentiment?.icon
+        valueLabel.text = (sentiment?.normalized).map {
+            "\(Int(($0 * 100).rounded()))%"
+        }
+        progressView.value = sentiment?.normalized
     }
 
     private func setupView() {
@@ -57,10 +59,10 @@ extension SentimentIconViewController {
             progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             progressView.widthAnchor.constraint(equalTo: progressView.heightAnchor, multiplier: 1),
 
-            iconLabel.topAnchor.constraint(equalTo: progressView.topAnchor, constant: 4),
-            iconLabel.leadingAnchor.constraint(equalTo: progressView.leadingAnchor, constant: 4),
-            iconLabel.trailingAnchor.constraint(equalTo: progressView.trailingAnchor, constant: -4),
-            iconLabel.bottomAnchor.constraint(equalTo: progressView.bottomAnchor, constant: -4),
+            iconLabel.topAnchor.constraint(equalTo: progressView.topAnchor, constant: 5),
+            iconLabel.leadingAnchor.constraint(equalTo: progressView.leadingAnchor, constant: 5),
+            iconLabel.trailingAnchor.constraint(equalTo: progressView.trailingAnchor, constant: -5),
+            iconLabel.bottomAnchor.constraint(equalTo: progressView.bottomAnchor, constant: -5),
 
             valueLabel.topAnchor.constraint(equalTo: iconLabel.bottomAnchor),
             valueLabel.leadingAnchor.constraint(equalTo: progressView.leadingAnchor),
