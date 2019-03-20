@@ -66,14 +66,14 @@ extension TimerViewController {
         let timeInterval = -date.timeIntervalSinceNow
         switch timeInterval {
         case ..<60:
-            return "\(Int(timeInterval))s"
+            return "\(Int(timeInterval))s."
         case ..<3600:
-            return "\(Int(timeInterval/60))min"
+            return "\(Int(timeInterval/60))min."
         case ..<86400:
-            return "\(Int(timeInterval/3600))h"
+            return "\(Int(timeInterval/3600))h."
         default:
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "YYYY.MM.d HH:mm"
+            dateFormatter.dateFormat = "YYYY.MM.d HH:mm."
             return dateFormatter.string(from: date)
         }
     }
