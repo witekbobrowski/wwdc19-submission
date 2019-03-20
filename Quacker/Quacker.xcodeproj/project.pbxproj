@@ -24,6 +24,7 @@
 		41C288C42242562600AEBD83 /* SentimentIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288C32242562600AEBD83 /* SentimentIconViewController.swift */; };
 		41C288C722425D9400AEBD83 /* CircullarProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288C622425D9400AEBD83 /* CircullarProgressView.swift */; };
 		41C288C92242607800AEBD83 /* CALayer+Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288C82242607800AEBD83 /* CALayer+Create.swift */; };
+		41C288CC224295ED00AEBD83 /* FeedCellHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C288CB224295ED00AEBD83 /* FeedCellHeaderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		41C288C32242562600AEBD83 /* SentimentIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimentIconViewController.swift; sourceTree = "<group>"; };
 		41C288C622425D9400AEBD83 /* CircullarProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircullarProgressView.swift; sourceTree = "<group>"; };
 		41C288C82242607800AEBD83 /* CALayer+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Create.swift"; sourceTree = "<group>"; };
+		41C288CB224295ED00AEBD83 /* FeedCellHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellHeaderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 		41C288B62242430400AEBD83 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				41C288CA224295D200AEBD83 /* Header */,
 				41C288C522425D7B00AEBD83 /* SentimentIcon */,
 				41C288B92242434E00AEBD83 /* FeedCellViewController.swift */,
 			);
@@ -178,6 +181,14 @@
 				41C288C622425D9400AEBD83 /* CircullarProgressView.swift */,
 			);
 			path = SentimentIcon;
+			sourceTree = "<group>";
+		};
+		41C288CA224295D200AEBD83 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				41C288CB224295ED00AEBD83 /* FeedCellHeaderViewController.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +274,7 @@
 				41C288A622419EA400AEBD83 /* HomeViewController.swift in Sources */,
 				41C288B82242432F00AEBD83 /* TableViewCell.swift in Sources */,
 				41C288C722425D9400AEBD83 /* CircullarProgressView.swift in Sources */,
+				41C288CC224295ED00AEBD83 /* FeedCellHeaderViewController.swift in Sources */,
 				41C288AD2241A6D500AEBD83 /* Quack.swift in Sources */,
 				41C288AF2241A74800AEBD83 /* Sentiment.swift in Sources */,
 			);

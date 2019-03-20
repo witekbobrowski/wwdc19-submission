@@ -11,6 +11,7 @@ import UIKit
 class FeedCellViewController: UIViewController {
 
     private let sentimentIconViewController = SentimentIconViewController()
+    private let headerViewController = FeedCellHeaderViewController()
 
     private let avatarLabel: UILabel = create {
         $0.font = UIFont.systemFont(ofSize: 40)
@@ -21,34 +22,9 @@ class FeedCellViewController: UIViewController {
     private var sentimentIconView: UIView {
         return sentimentIconViewController.view
     }
-
-    private let stackView: UIStackView = create {
-        $0.alignment = .center
-        $0.distribution = .fillProportionally
-        $0.spacing = 2
-        $0.axis = .horizontal
+    private var headerView: UIView {
+        return headerViewController.view
     }
-    private let nameLabel: UILabel = create {
-        $0.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        $0.setContentHuggingPriority(.required, for: .horizontal)
-        $0.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
-    }
-    private let usernameLabel: UILabel = create {
-        $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        $0.setContentHuggingPriority(.required, for: .horizontal)
-    }
-    private let dotLabel: UILabel = create {
-        $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        $0.setContentHuggingPriority(.required, for: .horizontal)
-        $0.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
-        $0.text = "·"
-    }
-    private let dateLabel: UILabel = create {
-        $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        $0.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        $0.setContentCompressionResistancePriority(.required, for: .horizontal)
-    }
-
     private let contentLabel: UILabel = create {
         $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         $0.numberOfLines = 0
@@ -67,10 +43,8 @@ extension FeedCellViewController {
 
     private func update(with quack: Quack?) {
         avatarLabel.text = quack?.user.avatar
-        nameLabel.text = quack?.user.fullName
-        usernameLabel.text = (quack?.user.username).map { "@\($0)" }
-        dateLabel.text = "1h"
         contentLabel.text = quack?.text
+        headerViewController.quack = quack
         sentimentIconViewController.sentiment = quack?.sentiment
     }
 
@@ -83,8 +57,8 @@ extension FeedCellViewController {
     }
 
     private func setupLayuot() {
-        [avatarLabel, stackView, contentLabel, sentimentIconView].forEach(view.addSubview)
-        [nameLabel, usernameLabel, dotLabel, dateLabel].forEach(stackView.addArrangedSubview)
+        [avatarLabel, headerView, contentLabel, sentimentIconView].forEach(view.addSubview)
+
         NSLayoutConstraint.activate([
             avatarLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 2),
             avatarLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
@@ -96,13 +70,13 @@ extension FeedCellViewController {
             sentimentIconView.trailingAnchor.constraint(equalTo: avatarLabel.trailingAnchor, constant: -6),
             sentimentIconView.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -8),
 
-            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 4),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
-            stackView.leadingAnchor.constraint(equalTo: avatarLabel.trailingAnchor, constant: 4),
+            headerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 4),
+            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            headerView.leadingAnchor.constraint(equalTo: avatarLabel.trailingAnchor, constant: 4),
 
-            contentLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
-            contentLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
-            contentLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 4),
+            contentLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
+            contentLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
+            contentLabel.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 4),
             contentLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8),
         ])
     }
