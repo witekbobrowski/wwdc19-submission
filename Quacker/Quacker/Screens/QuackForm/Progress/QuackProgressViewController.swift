@@ -22,7 +22,7 @@ class QuackProgressViewController: UIViewController {
         $0.lineCap = .round
     }
 
-    var value: Double? = 0 { didSet { updateProgress(for: value) } }
+    var value: Double = 0 { didSet { updateProgress(for: value) } }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,14 +43,14 @@ class QuackProgressViewController: UIViewController {
 
 extension QuackProgressViewController {
 
-    private func updateProgress(for value: Double?) {
-        let distance: CGFloat = (CGFloat(value ?? 0)) * 2 * .pi
+    private func updateProgress(for value: Double) {
+        let distance: CGFloat = CGFloat(value) * 2 * .pi
         let start: CGFloat = 1.5 * .pi
-        let angle = distance < 0.5 * .pi ? (start + distance) : (distance + start - 2 * .pi)
+        let angle = distance < 0.5 * .pi ? start + distance : distance + start - 2 * .pi - 0.0000001
         progressShapeLayer.path = getPath(
             in: view.bounds, startAngle: start, endAngle: angle
         )
-        let strokeColor = (value ?? 0) < 0.8 ? StyleSheet.Color.tintColor : .red
+        let strokeColor = value < 0.8 ? StyleSheet.Color.tintColor : (value < 0.95 ? .orange : .red)
         progressShapeLayer.strokeColor = strokeColor.cgColor
     }
 
@@ -63,7 +63,8 @@ extension QuackProgressViewController {
         let path = UIBezierPath()
         path.addArc(
             withCenter: CGPoint(x: frame.midX, y: frame.midY),
-            radius: frame.width/2 - 1, startAngle: startAngle, endAngle: endAngle, clockwise: true
+            radius: frame.width/2 - 1, startAngle: startAngle, endAngle: endAngle,
+            clockwise: true
         )
         return path.cgPath
     }

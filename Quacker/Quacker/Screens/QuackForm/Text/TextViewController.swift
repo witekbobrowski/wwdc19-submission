@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol TextViewControllerDelegate: class {
+    func textViewController(_ textViewController: TextViewController, didChange text: String)
+}
+
 class TextViewController: UIViewController {
 
     private lazy var textView: UITextView = create {
@@ -19,7 +23,8 @@ class TextViewController: UIViewController {
         $0.keyboardType = .twitter
     }
 
-    var text: String? { return textView.text }
+    weak var delegate: TextViewControllerDelegate?
+    var text: String { return textView.text }
     var characterLimit: Int = 280
 
     override func viewDidLoad() {
@@ -61,5 +66,8 @@ extension TextViewController: UITextViewDelegate {
         let currentValue = textView.text as NSString? ?? ""
         let updated = currentValue.replacingCharacters(in: range, with: text)
         return updated.count <= characterLimit
+    }
+    func textViewDidChange(_ textView: UITextView) {
+        delegate?.textViewController(self, didChange: text)
     }
 }

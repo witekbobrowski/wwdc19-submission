@@ -17,7 +17,7 @@ protocol QuackFormViewControllerDelegate: class {
 class QuackFormViewController: UIViewController {
 
     private let textViewController = TextViewController()
-    private let quackProgressViewController = QuackProgressViewController()
+    private let progressViewController = QuackProgressViewController()
     private let quackButtonViewController = NeonButtonViewController()
 
     weak var delegate: QuackFormViewControllerDelegate?
@@ -41,8 +41,9 @@ extension QuackFormViewController {
         title = "Quack something"
         view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
-        quackProgressViewController.value = 0.1
-        [textViewController, quackButtonViewController, quackProgressViewController].forEach(add)
+        progressViewController.value = 0
+        textViewController.delegate = self
+        [textViewController, quackButtonViewController, progressViewController].forEach(add)
         quackButtonViewController.button.setTitle("Quack it!", for: .normal)
         quackButtonViewController.button.addTarget(
             self, action: #selector(quackButtonDidTap), for: .touchUpInside
@@ -51,7 +52,7 @@ extension QuackFormViewController {
     }
 
     private func setupLayout() {
-        [textViewController.view, quackProgressViewController.view, quackButtonViewController.view].forEach(view.addSubview)
+        [textViewController.view, progressViewController.view, quackButtonViewController.view].forEach(view.addSubview)
         NSLayoutConstraint.activate([
             textViewController.view.leadingAnchor.constraint(
                 equalTo: view.leadingAnchor, constant: 16
@@ -64,14 +65,14 @@ extension QuackFormViewController {
             ),
             textViewController.view.heightAnchor.constraint(equalToConstant: 128),
 
-            quackProgressViewController.view.centerYAnchor.constraint(
+            progressViewController.view.centerYAnchor.constraint(
                 equalTo: quackButtonViewController.view.centerYAnchor
             ),
-            quackProgressViewController.view.trailingAnchor.constraint(
+            progressViewController.view.trailingAnchor.constraint(
                 equalTo: quackButtonViewController.view.leadingAnchor, constant: -16
             ),
-            quackProgressViewController.view.widthAnchor.constraint(equalToConstant: 24),
-            quackProgressViewController.view.heightAnchor.constraint(equalToConstant: 24),
+            progressViewController.view.widthAnchor.constraint(equalToConstant: 24),
+            progressViewController.view.heightAnchor.constraint(equalToConstant: 24),
 
 
             quackButtonViewController.view.topAnchor.constraint(
@@ -86,4 +87,11 @@ extension QuackFormViewController {
         ])
     }
 
+}
+
+extension QuackFormViewController: TextViewControllerDelegate {
+    func textViewController(_ textViewController: TextViewController, didChange text: String) {
+        let ratio = Double(text.count) / Double(textViewController.characterLimit)
+        progressViewController.value = max(min(ratio, 1), 0)
+    }
 }
