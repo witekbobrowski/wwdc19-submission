@@ -62,6 +62,18 @@ extension HomeViewController: HomeHeaderViewControllerDelegate {
     func homeHeaderViewControllerDidSelectQuack(
         _ homeHeaderViewController: HomeHeaderViewController
     ) {
-        presentModally(QuackFormViewController())
+        let quackFormViewController = QuackFormViewController()
+        quackFormViewController.delegate = self
+        presentModally(quackFormViewController)
     }
 }
+
+extension HomeViewController: QuackFormViewControllerDelegate {
+    func quackFormViewController(
+        _ quackFormViewController: QuackFormViewController, didQuacked quack: String?
+    ) {
+        presentedViewController?.dismiss(animated: true)
+        print(quack)
+    }
+}
+

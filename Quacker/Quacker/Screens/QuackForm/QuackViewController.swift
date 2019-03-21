@@ -9,20 +9,15 @@
 import UIKit
 
 protocol QuackFormViewControllerDelegate: class {
-    func quackFormViewControllerDidSelectQuack(
-        _ quackFormViewController: QuackFormViewController
+    func quackFormViewController(
+        _ quackFormViewController: QuackFormViewController, didQuacked quack: String?
     )
 }
 
 class QuackFormViewController: UIViewController {
 
     private let quackButtonViewController = NeonButtonViewController()
-
-    private let textView: UITextView = create {
-        $0.textColor = StyleSheet.Color.textColor
-        $0.layer.cornerRadius = 8
-        $0.backgroundColor = StyleSheet.Color.textColor.withAlphaComponent(0.05)
-    }
+    private let textViewController = TextViewController()
 
     weak var delegate: QuackFormViewControllerDelegate?
 
@@ -32,7 +27,9 @@ class QuackFormViewController: UIViewController {
     }
 
     @objc private func quackButtonDidTap(_ button: UIButton) {
-        delegate?.quackFormViewControllerDidSelectQuack(self)
+        delegate?.quackFormViewController(
+            self, didQuacked: textViewController.text
+        )
     }
 
 }
@@ -43,6 +40,7 @@ extension QuackFormViewController {
         title = "Quack something"
         view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
+        [textViewController, quackButtonViewController].forEach(add)
         quackButtonViewController.button.setTitle("Quack it!", for: .normal)
         quackButtonViewController.button.addTarget(
             self, action: #selector(quackButtonDidTap), for: .touchUpInside
@@ -51,16 +49,28 @@ extension QuackFormViewController {
     }
 
     private func setupLayout() {
-        [textView, quackButtonViewController.view].forEach(view.addSubview)
+        [textViewController.view, quackButtonViewController.view].forEach(view.addSubview)
         NSLayoutConstraint.activate([
-            textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            textView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
-            textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            textView.heightAnchor.constraint(equalToConstant: 128),
+            textViewController.view.leadingAnchor.constraint(
+                equalTo: view.leadingAnchor, constant: 16
+            ),
+            textViewController.view.topAnchor.constraint(
+                equalTo: view.topAnchor, constant: 8
+            ),
+            textViewController.view.trailingAnchor.constraint(
+                equalTo: view.trailingAnchor, constant: -16
+            ),
+            textViewController.view.heightAnchor.constraint(equalToConstant: 128),
 
-            quackButtonViewController.view.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 16),
-            quackButtonViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            quackButtonViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
+            quackButtonViewController.view.topAnchor.constraint(
+                equalTo: textViewController.view.bottomAnchor, constant: 16
+            ),
+            quackButtonViewController.view.trailingAnchor.constraint(
+                equalTo: view.trailingAnchor, constant: -16
+            ),
+            quackButtonViewController.view.bottomAnchor.constraint(
+                equalTo: view.bottomAnchor, constant: -16
+            ),
         ])
     }
 

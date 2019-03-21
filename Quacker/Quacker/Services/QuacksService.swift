@@ -9,7 +9,20 @@
 import Foundation
 
 class QuacksService {
+
+    private var storage = [Quack]()
+
+    func save(quack: Quack) {
+        storage.insert(quack, at: 0)
+    }
     func fetch() -> [Quack] {
+        return storage + mockedQuacks
+    }
+}
+
+extension QuacksService {
+
+    var mockedQuacks: [Quack] {
         return [
             Quack(
                 text: "WWDC19 Scholarships reward talented students and STEM organization members with the opportunity to attend this year’s conference. Developers selected for a scholarship will receive a WWDC19 ticket, lodging for the conference, and one year of membership in the Apple Developer Program free of charge.",
@@ -43,4 +56,5 @@ class QuacksService {
             )
         ]
     }
+
 }
