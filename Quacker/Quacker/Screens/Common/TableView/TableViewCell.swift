@@ -45,7 +45,7 @@ extension TableViewCell {
             view.topAnchor.constraint(equalTo: contentView.topAnchor),
             view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-            ])
+        ])
     }
 
     private func remove(old hostedView: UIView?) {

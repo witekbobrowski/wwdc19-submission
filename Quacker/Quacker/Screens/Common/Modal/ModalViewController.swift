@@ -20,7 +20,9 @@ class ModalViewController: UIViewController {
         $0.backgroundColor = .clear
     }
 
-    var contentViewController: UIViewController?
+    var contentViewController: UIViewController? {
+        didSet { reloadContent(old: oldValue, new: contentViewController) }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,11 +48,39 @@ class ModalViewController: UIViewController {
 
 extension ModalViewController {
 
+    private func reloadContent(old: UIViewController?, new: UIViewController?) {
+        // Remove old content, if existed
+        if let viewController = old {
+            viewController.view.removeFromSuperview()
+            viewController.moveFromParent()
+        }
+        // Embed new content, if exists
+        if let viewController = new {
+            add(child: viewController)
+            embed(new: viewController.view)
+        }
+        headerViewController.headerTitle = new?.title
+    }
+
+    private func embed(new hostedView: UIView) {
+        contentView.addSubview(hostedView)
+        NSLayoutConstraint.activate([
+            hostedView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            hostedView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            hostedView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            hostedView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
+    }
+
+    private func remove(old hostedView: UIView) {
+        view.removeFromSuperview()
+    }
+
     private func setupView() {
         view.backgroundColor = .clear
         headerViewController.delegate = self
-        headerViewController.headerTitle = "Quack something"
         add(child: headerViewController)
+        headerViewController.headerTitle = contentViewController?.title
         setupLayout()
     }
 
