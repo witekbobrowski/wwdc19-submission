@@ -34,6 +34,8 @@
 		41FBFED3224400ED00B42439 /* NeonButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFED2224400ED00B42439 /* NeonButtonViewController.swift */; };
 		41FBFED62244105E00B42439 /* QuackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFED52244105E00B42439 /* QuackViewController.swift */; };
 		41FBFED9224412D300B42439 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFED8224412D300B42439 /* ModalViewController.swift */; };
+		41FBFEDC2244235800B42439 /* ModalHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEDB2244235800B42439 /* ModalHeaderViewController.swift */; };
+		41FBFEDE2244277E00B42439 /* cancel-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 41FBFEDD2244277E00B42439 /* cancel-icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		41FBFED2224400ED00B42439 /* NeonButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonButtonViewController.swift; sourceTree = "<group>"; };
 		41FBFED52244105E00B42439 /* QuackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuackViewController.swift; sourceTree = "<group>"; };
 		41FBFED8224412D300B42439 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		41FBFEDB2244235800B42439 /* ModalHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalHeaderViewController.swift; sourceTree = "<group>"; };
+		41FBFEDD2244277E00B42439 /* cancel-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 		41C2889022419DE600AEBD83 /* Quacker */ = {
 			isa = PBXGroup;
 			children = (
+				41FBFEDF2244278100B42439 /* Resources */,
 				41C288A322419E8300AEBD83 /* Screens */,
 				41C288A422419E9200AEBD83 /* Model */,
 				41C288B02241A7B200AEBD83 /* Services */,
@@ -261,9 +266,34 @@
 		41FBFED72244128400B42439 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				41FBFEDA2244234700B42439 /* Header */,
 				41FBFED8224412D300B42439 /* ModalViewController.swift */,
 			);
 			path = Modal;
+			sourceTree = "<group>";
+		};
+		41FBFEDA2244234700B42439 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				41FBFEDB2244235800B42439 /* ModalHeaderViewController.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		41FBFEDF2244278100B42439 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				41FBFEE02244278800B42439 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		41FBFEE02244278800B42439 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				41FBFEDD2244277E00B42439 /* cancel-icon.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41C2889C22419DE800AEBD83 /* LaunchScreen.storyboard in Resources */,
+				41FBFEDE2244277E00B42439 /* cancel-icon.png in Resources */,
 				41C2889922419DE800AEBD83 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41C288BA2242434E00AEBD83 /* FeedCellViewController.swift in Sources */,
+				41FBFEDC2244235800B42439 /* ModalHeaderViewController.swift in Sources */,
 				41C288B52242418400AEBD83 /* UIView+Create.swift in Sources */,
 				41C288B22241A82000AEBD83 /* UserService.swift in Sources */,
 				41FBFEB82242D00F00B42439 /* SceneViewController.swift in Sources */,

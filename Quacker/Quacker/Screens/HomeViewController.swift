@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController {
+
     private func setupView() {
         view.backgroundColor = StyleSheet.Color.backgroundColor
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -42,19 +43,25 @@ extension HomeViewController {
             feedView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+
+    private func presentModally(_ viewController: UIViewController? = nil) {
+        let modalViewController = ModalViewController()
+        modalViewController.contentViewController = viewController
+        modalViewController.modalPresentationStyle = .overCurrentContext
+        modalViewController.modalTransitionStyle = .crossDissolve
+        present(modalViewController, animated: true)
+    }
 }
 
 extension HomeViewController: HomeHeaderViewControllerDelegate {
     func homeHeaderViewControllerDidSelectInfo(
         _ homeHeaderViewController: HomeHeaderViewController
     ) {
-        print("Info")
+        presentModally()
     }
     func homeHeaderViewControllerDidSelectQuack(
         _ homeHeaderViewController: HomeHeaderViewController
     ) {
-        let modalViewController = ModalViewController()
-        modalViewController.modalPresentationStyle = .overCurrentContext
-        present(modalViewController, animated: true)
+        presentModally()
     }
 }
