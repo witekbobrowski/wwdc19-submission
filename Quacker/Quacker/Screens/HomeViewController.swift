@@ -53,6 +53,8 @@ extension HomeViewController: HomeHeaderViewControllerDelegate {
     func homeHeaderViewControllerDidSelectQuack(
         _ homeHeaderViewController: HomeHeaderViewController
     ) {
-        print("Quack")
+        let modalViewController = ModalViewController()
+        modalViewController.modalPresentationStyle = .overCurrentContext
+        present(modalViewController, animated: true)
     }
 }

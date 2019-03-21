@@ -33,6 +33,7 @@
 		41FBFEC42242EB7000B42439 /* HomeHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEC32242EB7000B42439 /* HomeHeaderViewController.swift */; };
 		41FBFED3224400ED00B42439 /* NeonButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFED2224400ED00B42439 /* NeonButtonViewController.swift */; };
 		41FBFED62244105E00B42439 /* QuackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFED52244105E00B42439 /* QuackViewController.swift */; };
+		41FBFED9224412D300B42439 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFED8224412D300B42439 /* ModalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		41FBFEC32242EB7000B42439 /* HomeHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewController.swift; sourceTree = "<group>"; };
 		41FBFED2224400ED00B42439 /* NeonButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonButtonViewController.swift; sourceTree = "<group>"; };
 		41FBFED52244105E00B42439 /* QuackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuackViewController.swift; sourceTree = "<group>"; };
+		41FBFED8224412D300B42439 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,11 +113,11 @@
 		41C288A322419E8300AEBD83 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				41FBFED42244104C00B42439 /* Quack */,
 				41C288A522419EA400AEBD83 /* HomeViewController.swift */,
 				41C288BF224246BB00AEBD83 /* Common */,
 				41C288A722419ECB00AEBD83 /* Feed */,
 				41FBFEC22242EB4000B42439 /* Header */,
+				41FBFED42244104C00B42439 /* Quack */,
 				41FBFEB62242CFF900B42439 /* Scene */,
 			);
 			path = Screens;
@@ -183,6 +185,7 @@
 		41C288BF224246BB00AEBD83 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				41FBFED72244128400B42439 /* Modal */,
 				41FBFED1224400D500B42439 /* Button */,
 				41C288C0224246C200AEBD83 /* TableView */,
 			);
@@ -253,6 +256,14 @@
 				41FBFED52244105E00B42439 /* QuackViewController.swift */,
 			);
 			path = Quack;
+			sourceTree = "<group>";
+		};
+		41FBFED72244128400B42439 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				41FBFED8224412D300B42439 /* ModalViewController.swift */,
+			);
+			path = Modal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +347,7 @@
 				41FBFED62244105E00B42439 /* QuackViewController.swift in Sources */,
 				41FBFEC42242EB7000B42439 /* HomeHeaderViewController.swift in Sources */,
 				41FBFEBC2242D69900B42439 /* StyleSheet.swift in Sources */,
+				41FBFED9224412D300B42439 /* ModalViewController.swift in Sources */,
 				41C2889222419DE600AEBD83 /* AppDelegate.swift in Sources */,
 				41FBFEC12242E0EB00B42439 /* TimerViewController.swift in Sources */,
 				41C288BE2242455400AEBD83 /* UITableViewCell+Reusable.swift in Sources */,
