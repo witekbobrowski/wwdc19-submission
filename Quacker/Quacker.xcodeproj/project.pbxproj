@@ -125,7 +125,7 @@
 				41C288A722419ECB00AEBD83 /* Feed */,
 				41FBFEC22242EB4000B42439 /* Header */,
 				41FBFEE122442E0900B42439 /* Info */,
-				41FBFED42244104C00B42439 /* Quack */,
+				41FBFED42244104C00B42439 /* QuackForm */,
 				41FBFEB62242CFF900B42439 /* Scene */,
 			);
 			path = Screens;
@@ -258,12 +258,12 @@
 			path = Button;
 			sourceTree = "<group>";
 		};
-		41FBFED42244104C00B42439 /* Quack */ = {
+		41FBFED42244104C00B42439 /* QuackForm */ = {
 			isa = PBXGroup;
 			children = (
 				41FBFED52244105E00B42439 /* QuackViewController.swift */,
 			);
-			path = Quack;
+			path = QuackForm;
 			sourceTree = "<group>";
 		};
 		41FBFED72244128400B42439 /* Modal */ = {

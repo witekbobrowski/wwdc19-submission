@@ -103,7 +103,6 @@ extension ModalViewController {
             contentView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            contentView.heightAnchor.constraint(equalToConstant: 256),
         ])
     }
 
