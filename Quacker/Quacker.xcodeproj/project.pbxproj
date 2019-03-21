@@ -36,6 +36,7 @@
 		41FBFED9224412D300B42439 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFED8224412D300B42439 /* ModalViewController.swift */; };
 		41FBFEDC2244235800B42439 /* ModalHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEDB2244235800B42439 /* ModalHeaderViewController.swift */; };
 		41FBFEDE2244277E00B42439 /* cancel-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 41FBFEDD2244277E00B42439 /* cancel-icon.png */; };
+		41FBFEE322442E1600B42439 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEE222442E1600B42439 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		41FBFED8224412D300B42439 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		41FBFEDB2244235800B42439 /* ModalHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalHeaderViewController.swift; sourceTree = "<group>"; };
 		41FBFEDD2244277E00B42439 /* cancel-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel-icon.png"; sourceTree = "<group>"; };
+		41FBFEE222442E1600B42439 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				41C288BF224246BB00AEBD83 /* Common */,
 				41C288A722419ECB00AEBD83 /* Feed */,
 				41FBFEC22242EB4000B42439 /* Header */,
+				41FBFEE122442E0900B42439 /* Info */,
 				41FBFED42244104C00B42439 /* Quack */,
 				41FBFEB62242CFF900B42439 /* Scene */,
 			);
@@ -296,6 +299,14 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		41FBFEE122442E0900B42439 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				41FBFEE222442E1600B42439 /* InfoViewController.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -380,6 +391,7 @@
 				41FBFEC42242EB7000B42439 /* HomeHeaderViewController.swift in Sources */,
 				41FBFEBC2242D69900B42439 /* StyleSheet.swift in Sources */,
 				41FBFED9224412D300B42439 /* ModalViewController.swift in Sources */,
+				41FBFEE322442E1600B42439 /* InfoViewController.swift in Sources */,
 				41C2889222419DE600AEBD83 /* AppDelegate.swift in Sources */,
 				41FBFEC12242E0EB00B42439 /* TimerViewController.swift in Sources */,
 				41C288BE2242455400AEBD83 /* UITableViewCell+Reusable.swift in Sources */,

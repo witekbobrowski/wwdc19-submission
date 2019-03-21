@@ -57,11 +57,11 @@ extension HomeViewController: HomeHeaderViewControllerDelegate {
     func homeHeaderViewControllerDidSelectInfo(
         _ homeHeaderViewController: HomeHeaderViewController
     ) {
-        presentModally()
+        presentModally(InfoViewController())
     }
     func homeHeaderViewControllerDidSelectQuack(
         _ homeHeaderViewController: HomeHeaderViewController
     ) {
-        presentModally()
+        presentModally(QuackViewController())
     }
 }
