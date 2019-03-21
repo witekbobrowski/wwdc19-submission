@@ -27,11 +27,12 @@ extension HomeViewController {
     private func setupView() {
         view.backgroundColor = StyleSheet.Color.backgroundColor
         view.translatesAutoresizingMaskIntoConstraints = false
+        headerViewController.delegate = self
         [headerViewController, feedViewController].forEach(add)
         [headerView, feedView].forEach(view.addSubview)
         NSLayoutConstraint.activate([
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            headerView.topAnchor.constraint(equalTo: view.topAnchor),
+            headerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             headerView.heightAnchor.constraint(equalToConstant: 64),
 
@@ -40,5 +41,18 @@ extension HomeViewController {
             feedView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             feedView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+}
+
+extension HomeViewController: HomeHeaderViewControllerDelegate {
+    func homeHeaderViewControllerDidSelectInfo(
+        _ homeHeaderViewController: HomeHeaderViewController
+    ) {
+        print("Info")
+    }
+    func homeHeaderViewControllerDidSelectQuack(
+        _ homeHeaderViewController: HomeHeaderViewController
+    ) {
+        print("Quack")
     }
 }

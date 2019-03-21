@@ -31,6 +31,7 @@
 		41FBFEBF2242DE8B00B42439 /* FeedCellAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEBE2242DE8B00B42439 /* FeedCellAvatarViewController.swift */; };
 		41FBFEC12242E0EB00B42439 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEC02242E0EB00B42439 /* TimerViewController.swift */; };
 		41FBFEC42242EB7000B42439 /* HomeHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEC32242EB7000B42439 /* HomeHeaderViewController.swift */; };
+		41FBFED3224400ED00B42439 /* NeonButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFED2224400ED00B42439 /* NeonButtonViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		41FBFEBE2242DE8B00B42439 /* FeedCellAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellAvatarViewController.swift; sourceTree = "<group>"; };
 		41FBFEC02242E0EB00B42439 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		41FBFEC32242EB7000B42439 /* HomeHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewController.swift; sourceTree = "<group>"; };
+		41FBFED2224400ED00B42439 /* NeonButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonButtonViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 		41C288BF224246BB00AEBD83 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				41FBFED1224400D500B42439 /* Button */,
 				41C288C0224246C200AEBD83 /* TableView */,
 			);
 			path = Common;
@@ -231,6 +234,14 @@
 				41FBFEC32242EB7000B42439 /* HomeHeaderViewController.swift */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		41FBFED1224400D500B42439 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				41FBFED2224400ED00B42439 /* NeonButtonViewController.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +329,7 @@
 				41C288BE2242455400AEBD83 /* UITableViewCell+Reusable.swift in Sources */,
 				41C288A922419F6D00AEBD83 /* FeedViewController.swift in Sources */,
 				41C288C92242607800AEBD83 /* CALayer+Create.swift in Sources */,
+				41FBFED3224400ED00B42439 /* NeonButtonViewController.swift in Sources */,
 				41C288A622419EA400AEBD83 /* HomeViewController.swift in Sources */,
 				41C288B82242432F00AEBD83 /* TableViewCell.swift in Sources */,
 				41C288C722425D9400AEBD83 /* CircullarProgressView.swift in Sources */,
