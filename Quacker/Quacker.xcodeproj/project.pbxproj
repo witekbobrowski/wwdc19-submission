@@ -38,6 +38,7 @@
 		41FBFEDE2244277E00B42439 /* cancel-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 41FBFEDD2244277E00B42439 /* cancel-icon.png */; };
 		41FBFEE322442E1600B42439 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEE222442E1600B42439 /* InfoViewController.swift */; };
 		41FBFEE6224439A200B42439 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEE5224439A200B42439 /* TextViewController.swift */; };
+		41FBFEE922444E9F00B42439 /* QuackProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEE822444E9F00B42439 /* QuackProgressViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		41FBFEDD2244277E00B42439 /* cancel-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel-icon.png"; sourceTree = "<group>"; };
 		41FBFEE222442E1600B42439 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		41FBFEE5224439A200B42439 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		41FBFEE822444E9F00B42439 /* QuackProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuackProgressViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +265,7 @@
 		41FBFED42244104C00B42439 /* QuackForm */ = {
 			isa = PBXGroup;
 			children = (
+				41FBFEE722444E7400B42439 /* Progress */,
 				41FBFEE42244399100B42439 /* Text */,
 				41FBFED52244105E00B42439 /* QuackViewController.swift */,
 			);
@@ -316,6 +319,14 @@
 				41FBFEE5224439A200B42439 /* TextViewController.swift */,
 			);
 			path = Text;
+			sourceTree = "<group>";
+		};
+		41FBFEE722444E7400B42439 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				41FBFEE822444E9F00B42439 /* QuackProgressViewController.swift */,
+			);
+			path = Progress;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,6 +405,7 @@
 				41C288B52242418400AEBD83 /* UIView+Create.swift in Sources */,
 				41C288B22241A82000AEBD83 /* UserService.swift in Sources */,
 				41FBFEB82242D00F00B42439 /* SceneViewController.swift in Sources */,
+				41FBFEE922444E9F00B42439 /* QuackProgressViewController.swift in Sources */,
 				41C288C2224254DE00AEBD83 /* QuacksService.swift in Sources */,
 				41C288AB2241A65800AEBD83 /* User.swift in Sources */,
 				41C288C42242562600AEBD83 /* SentimentIconViewController.swift in Sources */,

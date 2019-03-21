@@ -32,7 +32,7 @@ class CircullarProgressView: UIView {
         }
     }
 
-    var value: Double? = 0.5 { didSet { updatePointer(for: value) } }
+    var value: Double? = 0 { didSet { updatePointer(for: value) } }
 
     override init(frame: CGRect) {
         super.init(frame: frame)

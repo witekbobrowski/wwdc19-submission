@@ -16,6 +16,7 @@ class TextViewController: UIViewController {
         $0.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         $0.backgroundColor = StyleSheet.Color.textColor.withAlphaComponent(0.05)
         $0.delegate = self
+        $0.keyboardType = .twitter
     }
 
     var text: String? { return textView.text }
@@ -24,6 +25,11 @@ class TextViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        view.endEditing(true)
     }
 
 }
@@ -56,5 +62,4 @@ extension TextViewController: UITextViewDelegate {
         let updated = currentValue.replacingCharacters(in: range, with: text)
         return updated.count <= characterLimit
     }
-
 }
