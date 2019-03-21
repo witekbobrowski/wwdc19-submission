@@ -70,7 +70,7 @@ extension HomeHeaderViewController {
         NSLayoutConstraint.activate([
             infoButtonViewController.view.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             infoButtonViewController.view.leadingAnchor.constraint(
-                equalTo: view.leadingAnchor, constant: 16
+                equalTo: view.leadingAnchor, constant: 4
             ),
 
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -79,7 +79,7 @@ extension HomeHeaderViewController {
 
             quackButtonViewController.view.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             quackButtonViewController.view.trailingAnchor.constraint(
-                equalTo: view.trailingAnchor, constant: -16
+                equalTo: view.trailingAnchor, constant: -4
             )
         ])
     }

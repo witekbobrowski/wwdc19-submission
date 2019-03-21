@@ -32,6 +32,7 @@
 		41FBFEC12242E0EB00B42439 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEC02242E0EB00B42439 /* TimerViewController.swift */; };
 		41FBFEC42242EB7000B42439 /* HomeHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEC32242EB7000B42439 /* HomeHeaderViewController.swift */; };
 		41FBFED3224400ED00B42439 /* NeonButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFED2224400ED00B42439 /* NeonButtonViewController.swift */; };
+		41FBFED62244105E00B42439 /* QuackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFED52244105E00B42439 /* QuackViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		41FBFEC02242E0EB00B42439 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		41FBFEC32242EB7000B42439 /* HomeHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewController.swift; sourceTree = "<group>"; };
 		41FBFED2224400ED00B42439 /* NeonButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonButtonViewController.swift; sourceTree = "<group>"; };
+		41FBFED52244105E00B42439 /* QuackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuackViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		41C288A322419E8300AEBD83 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				41FBFED42244104C00B42439 /* Quack */,
 				41C288A522419EA400AEBD83 /* HomeViewController.swift */,
 				41C288BF224246BB00AEBD83 /* Common */,
 				41C288A722419ECB00AEBD83 /* Feed */,
@@ -244,6 +247,14 @@
 			path = Button;
 			sourceTree = "<group>";
 		};
+		41FBFED42244104C00B42439 /* Quack */ = {
+			isa = PBXGroup;
+			children = (
+				41FBFED52244105E00B42439 /* QuackViewController.swift */,
+			);
+			path = Quack;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -322,6 +333,7 @@
 				41C288AB2241A65800AEBD83 /* User.swift in Sources */,
 				41C288C42242562600AEBD83 /* SentimentIconViewController.swift in Sources */,
 				41FBFEBF2242DE8B00B42439 /* FeedCellAvatarViewController.swift in Sources */,
+				41FBFED62244105E00B42439 /* QuackViewController.swift in Sources */,
 				41FBFEC42242EB7000B42439 /* HomeHeaderViewController.swift in Sources */,
 				41FBFEBC2242D69900B42439 /* StyleSheet.swift in Sources */,
 				41C2889222419DE600AEBD83 /* AppDelegate.swift in Sources */,
