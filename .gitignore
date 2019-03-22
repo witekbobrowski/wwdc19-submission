@@ -150,6 +150,9 @@ dmypy.json
 ### Python Patch ###
 .venv/
 
+# CSV
+.csv
+
 ### Swift ###
 # Xcode
 #
