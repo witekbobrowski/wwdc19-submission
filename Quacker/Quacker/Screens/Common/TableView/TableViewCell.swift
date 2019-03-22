@@ -34,7 +34,6 @@ class TableViewCell: UITableViewCell {
 
 }
 
-
 extension TableViewCell {
 
     private func embed(new hostedView: UIView?) {
@@ -49,7 +48,7 @@ extension TableViewCell {
     }
 
     private func remove(old hostedView: UIView?) {
-        guard let view = hostedView else { return }
+        guard let view = hostedView, view.superview != nil else { return }
         view.removeFromSuperview()
     }
 

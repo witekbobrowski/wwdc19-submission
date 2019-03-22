@@ -25,9 +25,7 @@ class FeedViewController: UIViewController {
         $0.register(TableViewCell.self)
     }
 
-    private let quacksService = QuacksService()
-
-    private var contentViewControllers = [UIViewController]() {
+    var contentViewControllers = [UIViewController]() {
         didSet {
             reloadContent(old: oldValue, new: contentViewControllers)
         }
@@ -38,11 +36,6 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        contentViewControllers = quacksService.fetch().map { quack in
-            let viewcontroller = FeedCellViewController()
-            viewcontroller.quack = quack
-            return viewcontroller
-        }
     }
 
 }

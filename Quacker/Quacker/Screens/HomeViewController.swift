@@ -16,9 +16,20 @@ class HomeViewController: UIViewController {
     private var headerView: UIView { return headerViewController.view }
     private var feedView: UIView { return feedViewController.view }
 
+    private let quackController = QuackController()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        reload()
+    }
+
+    private func reload() {
+        feedViewController.contentViewControllers = quackController.quacks.map { quack in
+            let viewcontroller = FeedCellViewController()
+            viewcontroller.quack = quack
+            return viewcontroller
+        }
     }
 
 }
@@ -73,7 +84,10 @@ extension HomeViewController: QuackFormViewControllerDelegate {
         _ quackFormViewController: QuackFormViewController, didQuacked quack: String?
     ) {
         presentedViewController?.dismiss(animated: true)
-        print(quack)
+        guard let quack = quack else { return }
+        quackController.createQuack(with: quack, from: .💩) { [weak self] in
+            self?.reload()
+        }
     }
 }
 

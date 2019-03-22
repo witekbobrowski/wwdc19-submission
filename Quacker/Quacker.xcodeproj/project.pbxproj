@@ -39,6 +39,7 @@
 		41FBFEE322442E1600B42439 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEE222442E1600B42439 /* InfoViewController.swift */; };
 		41FBFEE6224439A200B42439 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEE5224439A200B42439 /* TextViewController.swift */; };
 		41FBFEE922444E9F00B42439 /* QuackProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEE822444E9F00B42439 /* QuackProgressViewController.swift */; };
+		41FBFEEC224463C300B42439 /* QuackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEEB224463C300B42439 /* QuackController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		41FBFEE222442E1600B42439 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		41FBFEE5224439A200B42439 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		41FBFEE822444E9F00B42439 /* QuackProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuackProgressViewController.swift; sourceTree = "<group>"; };
+		41FBFEEB224463C300B42439 /* QuackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuackController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 			children = (
 				41C288B32242416900AEBD83 /* Extensions */,
 				41FBFEBB2242D69900B42439 /* StyleSheet.swift */,
+				41FBFEEB224463C300B42439 /* QuackController.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				41FBFEC12242E0EB00B42439 /* TimerViewController.swift in Sources */,
 				41C288BE2242455400AEBD83 /* UITableViewCell+Reusable.swift in Sources */,
 				41C288A922419F6D00AEBD83 /* FeedViewController.swift in Sources */,
+				41FBFEEC224463C300B42439 /* QuackController.swift in Sources */,
 				41C288C92242607800AEBD83 /* CALayer+Create.swift in Sources */,
 				41FBFEE6224439A200B42439 /* TextViewController.swift in Sources */,
 				41FBFED3224400ED00B42439 /* NeonButtonViewController.swift in Sources */,

@@ -28,20 +28,16 @@ class TimerViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        timer = Timer.scheduledTimer(
-            timeInterval: 1, target: self, selector: #selector(timerDidFire),
-            userInfo: nil, repeats: true
-        )
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            self?.update(with: self?.date)
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         timer?.invalidate()
     }
-
-    @objc private func timerDidFire() {
-        update(with: date)
-    }
+    
 }
 
 extension TimerViewController {

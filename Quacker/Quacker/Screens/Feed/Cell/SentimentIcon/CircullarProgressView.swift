@@ -98,9 +98,7 @@ extension CircullarProgressView {
     }
 
     private func getPointerOrigin(value: Double, lineWidth: CGFloat, radius: CGFloat) -> CGPoint {
-
         let angle: CGFloat = .pi * 0.8 + (.pi * 1.4) * CGFloat(value)
-
         let x = bounds.midX + (bounds.width/2 - 2) * cos(angle)
         let y = bounds.midY + (bounds.height/2 - 2) * sin(angle)
         return CGPoint(x: x - radius, y: y - radius)

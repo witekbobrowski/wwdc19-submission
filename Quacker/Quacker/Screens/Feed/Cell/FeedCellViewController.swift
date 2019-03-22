@@ -75,7 +75,7 @@ extension FeedCellViewController {
             contentLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
             contentLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
             contentLabel.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 4),
-            contentLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -12),
+            contentLabel.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -12),
         ])
     }
 
