@@ -81,11 +81,13 @@ extension HomeViewController: HomeHeaderViewControllerDelegate {
 
 extension HomeViewController: QuackFormViewControllerDelegate {
     func quackFormViewController(
-        _ quackFormViewController: QuackFormViewController, didQuacked quack: String?
+        _ quackFormViewController: QuackFormViewController,
+        didQuacked quack: String?,
+        as user: User?
     ) {
         presentedViewController?.dismiss(animated: true)
-        guard let quack = quack else { return }
-        quackController.createQuack(with: quack, from: .💩) { [weak self] in
+        guard let quack = quack, let user = user else { return }
+        quackController.createQuack(with: quack, from: user) { [weak self] in
             self?.reload()
         }
     }

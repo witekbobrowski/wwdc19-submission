@@ -40,6 +40,8 @@
 		41FBFEE6224439A200B42439 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEE5224439A200B42439 /* TextViewController.swift */; };
 		41FBFEE922444E9F00B42439 /* QuackProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEE822444E9F00B42439 /* QuackProgressViewController.swift */; };
 		41FBFEEC224463C300B42439 /* QuackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEEB224463C300B42439 /* QuackController.swift */; };
+		F95FDDAE2246C7B900CC0847 /* UserPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95FDDAD2246C7B900CC0847 /* UserPickerViewController.swift */; };
+		F95FDDB02246CC6D00CC0847 /* UIStackView+RemoveSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95FDDAF2246CC6D00CC0847 /* UIStackView+RemoveSubviews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		41FBFEE5224439A200B42439 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		41FBFEE822444E9F00B42439 /* QuackProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuackProgressViewController.swift; sourceTree = "<group>"; };
 		41FBFEEB224463C300B42439 /* QuackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuackController.swift; sourceTree = "<group>"; };
+		F95FDDAD2246C7B900CC0847 /* UserPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPickerViewController.swift; sourceTree = "<group>"; };
+		F95FDDAF2246CC6D00CC0847 /* UIStackView+RemoveSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+RemoveSubviews.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,7 @@
 				41C288C82242607800AEBD83 /* CALayer+Create.swift */,
 				41C288BD2242455400AEBD83 /* UITableViewCell+Reusable.swift */,
 				41FBFEB92242D20D00B42439 /* UIViewController+Child.swift */,
+				F95FDDAF2246CC6D00CC0847 /* UIStackView+RemoveSubviews.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 		41FBFED42244104C00B42439 /* QuackForm */ = {
 			isa = PBXGroup;
 			children = (
+				F95FDDAC2246C7A600CC0847 /* UserPicker */,
 				41FBFEE722444E7400B42439 /* Progress */,
 				41FBFEE42244399100B42439 /* Text */,
 				41FBFED52244105E00B42439 /* QuackFormViewController.swift */,
@@ -330,6 +336,14 @@
 				41FBFEE822444E9F00B42439 /* QuackProgressViewController.swift */,
 			);
 			path = Progress;
+			sourceTree = "<group>";
+		};
+		F95FDDAC2246C7A600CC0847 /* UserPicker */ = {
+			isa = PBXGroup;
+			children = (
+				F95FDDAD2246C7B900CC0847 /* UserPickerViewController.swift */,
+			);
+			path = UserPicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,6 +421,7 @@
 				41FBFEDC2244235800B42439 /* ModalHeaderViewController.swift in Sources */,
 				41C288B52242418400AEBD83 /* UIView+Create.swift in Sources */,
 				41C288B22241A82000AEBD83 /* UserService.swift in Sources */,
+				F95FDDAE2246C7B900CC0847 /* UserPickerViewController.swift in Sources */,
 				41FBFEB82242D00F00B42439 /* SceneViewController.swift in Sources */,
 				41FBFEE922444E9F00B42439 /* QuackProgressViewController.swift in Sources */,
 				41C288C2224254DE00AEBD83 /* QuacksService.swift in Sources */,
@@ -424,6 +439,7 @@
 				41C288A922419F6D00AEBD83 /* FeedViewController.swift in Sources */,
 				41FBFEEC224463C300B42439 /* QuackController.swift in Sources */,
 				41C288C92242607800AEBD83 /* CALayer+Create.swift in Sources */,
+				F95FDDB02246CC6D00CC0847 /* UIStackView+RemoveSubviews.swift in Sources */,
 				41FBFEE6224439A200B42439 /* TextViewController.swift in Sources */,
 				41FBFED3224400ED00B42439 /* NeonButtonViewController.swift in Sources */,
 				41C288A622419EA400AEBD83 /* HomeViewController.swift in Sources */,

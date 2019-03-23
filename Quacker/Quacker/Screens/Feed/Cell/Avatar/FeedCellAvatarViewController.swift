@@ -21,6 +21,10 @@ class FeedCellAvatarViewController: UIViewController {
     }
 
     var avatar: String? { didSet { update(with: avatar) } }
+    var avatarBackgroundColor: UIColor? {
+        set { avatarLabel.backgroundColor = newValue }
+        get { return avatarLabel.backgroundColor }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
