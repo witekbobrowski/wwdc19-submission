@@ -14,6 +14,13 @@ class UserPickerViewController: UIViewController {
 
     private let pickerViewController = HorizontalPickerViewController()
 
+    private let titleLabel: UILabel = create {
+        $0.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        $0.textColor = StyleSheet.Color.textColor
+        $0.setContentHuggingPriority(.required, for: .horizontal)
+        $0.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+    }
+
     private var users = [User]() {
         didSet { reload(with: users) }
     }
@@ -44,17 +51,26 @@ extension UserPickerViewController {
     private func setupView() {
         view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.text = "Quack as:"
         add(child: pickerViewController)
         setupLayout()
     }
 
     private func setupLayout() {
-        view.addSubview(pickerViewController.view)
+        [titleLabel, pickerViewController.view].forEach(view.addSubview)
         NSLayoutConstraint.activate([
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            titleLabel.centerYAnchor.constraint(
+                equalTo: pickerViewController.view.centerYAnchor
+            ),
+            titleLabel.trailingAnchor.constraint(
+                equalTo: pickerViewController.view.leadingAnchor, constant: -12
+            ),
+
             pickerViewController.view.topAnchor.constraint(equalTo: view.topAnchor),
-            pickerViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             pickerViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            pickerViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            pickerViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            pickerViewController.view.widthAnchor.constraint(equalToConstant: 128),
         ])
     }
 

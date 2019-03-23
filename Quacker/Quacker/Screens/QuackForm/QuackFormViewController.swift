@@ -80,7 +80,6 @@ extension QuackFormViewController {
             userPickerViewController.view.bottomAnchor.constraint(
                 equalTo: view.bottomAnchor, constant: -16
             ),
-            userPickerViewController.view.widthAnchor.constraint(equalToConstant: 128),
 
             progressViewController.view.centerYAnchor.constraint(
                 equalTo: quackButtonViewController.view.centerYAnchor

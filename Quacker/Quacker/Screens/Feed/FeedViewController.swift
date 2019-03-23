@@ -79,6 +79,7 @@ extension FeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(TableViewCell.self, for: indexPath)
         cell.hostedView = contentViewControllers[indexPath.row].view
+        cell.selectionStyle = .none
         return cell
     }
 }
