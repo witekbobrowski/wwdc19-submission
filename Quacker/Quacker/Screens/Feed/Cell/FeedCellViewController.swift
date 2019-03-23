@@ -10,7 +10,7 @@ import UIKit
 
 class FeedCellViewController: UIViewController {
 
-    private let avatarViewController = FeedCellAvatarViewController()
+    private let avatarViewController = AvatarViewController()
     private let sentimentIconViewController = SentimentIconViewController()
     private let headerViewController = FeedCellHeaderViewController()
 

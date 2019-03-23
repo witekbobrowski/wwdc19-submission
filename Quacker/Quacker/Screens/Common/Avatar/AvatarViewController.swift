@@ -1,5 +1,5 @@
 //
-//  FeedCellAvatarViewController.swift
+//  AvatarViewController.swift
 //  Quacker
 //
 //  Created by Witek Bobrowski on 20/03/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedCellAvatarViewController: UIViewController {
+class AvatarViewController: UIViewController {
 
     private let avatarLabel: UILabel = create {
         $0.font = UIFont.systemFont(ofSize: 40)
@@ -33,7 +33,7 @@ class FeedCellAvatarViewController: UIViewController {
 
 }
 
-extension FeedCellAvatarViewController {
+extension AvatarViewController {
 
     private func update(with avatar: String?) {
         avatarLabel.text = avatar

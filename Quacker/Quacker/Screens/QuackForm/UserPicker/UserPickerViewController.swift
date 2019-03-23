@@ -69,7 +69,7 @@ extension UserPickerViewController {
 
     private func reload(with users: [User]) {
         contentViewControllers = users.map { user in
-            let viewController = FeedCellAvatarViewController()
+            let viewController = AvatarViewController()
             viewController.avatar = user.avatar
             viewController.avatarBackgroundColor = .clear
             viewController.view.addGestureRecognizer(
