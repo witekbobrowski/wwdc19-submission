@@ -12,9 +12,11 @@ class HomeViewController: UIViewController {
 
     private let headerViewController = HomeHeaderViewController()
     private let feedViewController = FeedViewController()
+    private let footerViewController = HomeFooterViewController()
 
     private var headerView: UIView { return headerViewController.view }
     private var feedView: UIView { return feedViewController.view }
+    private var footerView: UIView { return footerViewController.view }
 
     private let quackController: QuackController
 
@@ -49,18 +51,27 @@ extension HomeViewController {
         view.backgroundColor = StyleSheet.Color.backgroundColor
         view.translatesAutoresizingMaskIntoConstraints = false
         headerViewController.delegate = self
-        [headerViewController, feedViewController].forEach(add)
-        [headerView, feedView].forEach(view.addSubview)
+        [headerViewController, feedViewController, footerViewController].forEach(add)
+        [headerView, footerView, feedView].forEach(view.addSubview)
         NSLayoutConstraint.activate([
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            headerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            headerView.topAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.topAnchor
+            ),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 64),
+            headerView.heightAnchor.constraint(equalToConstant: 48),
 
             feedView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             feedView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             feedView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            feedView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+
+            footerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            footerView.topAnchor.constraint(equalTo: feedView.bottomAnchor),
+            footerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            footerView.bottomAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.bottomAnchor
+            ),
+            footerView.heightAnchor.constraint(equalToConstant: 32)
         ])
     }
 

@@ -10,11 +10,8 @@ import UIKit
 
 class HomeFooterViewController: UIViewController {
 
-    private let infoButtonViewController = NeonButtonViewController()
-    private let quackButtonViewController = NeonButtonViewController()
-
     private let titleLabel: UILabel = create {
-        $0.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        $0.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         $0.textColor = StyleSheet.Color.textColor
         $0.textAlignment = .center
         $0.baselineAdjustment = .alignCenters
