@@ -111,7 +111,9 @@ extension HomeViewController: QuackFormViewControllerDelegate {
     ) {
         presentedViewController?.dismiss(animated: true)
         guard let quack = quack, let user = user else { return }
-        quackController.createQuack(with: quack, from: user) { [weak self] in
+        quackController.createQuack(
+            with: quack, from: user, at: Date()
+        ) { [weak self] in
             self?.reload()
         }
     }

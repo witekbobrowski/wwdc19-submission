@@ -17,7 +17,9 @@ struct User: Codable {
 extension User {
     init(name: String, avatar: String) {
         self.init(
-            username: name.lowercased(), fullName: name, avatar: avatar
+            username: name.lowercased() + "\(Int.random(in: 0...2000))",
+            fullName: name,
+            avatar: avatar
         )
     }
 }
