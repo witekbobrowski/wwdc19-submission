@@ -40,6 +40,7 @@
 		41FBFEE6224439A200B42439 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEE5224439A200B42439 /* TextViewController.swift */; };
 		41FBFEE922444E9F00B42439 /* QuackProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEE822444E9F00B42439 /* QuackProgressViewController.swift */; };
 		41FBFEEC224463C300B42439 /* QuackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEEB224463C300B42439 /* QuackController.swift */; };
+		41FBFEF522470EE800B42439 /* SentimentalAnalysis.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 41FBFEF422470EE800B42439 /* SentimentalAnalysis.mlmodel */; };
 		F95FDDAE2246C7B900CC0847 /* UserPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95FDDAD2246C7B900CC0847 /* UserPickerViewController.swift */; };
 		F95FDDB02246CC6D00CC0847 /* UIStackView+RemoveSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95FDDAF2246CC6D00CC0847 /* UIStackView+RemoveSubviews.swift */; };
 		F95FDDB42246F36600CC0847 /* HorizontalPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95FDDB32246F36600CC0847 /* HorizontalPickerViewController.swift */; };
@@ -82,6 +83,7 @@
 		41FBFEE5224439A200B42439 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		41FBFEE822444E9F00B42439 /* QuackProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuackProgressViewController.swift; sourceTree = "<group>"; };
 		41FBFEEB224463C300B42439 /* QuackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuackController.swift; sourceTree = "<group>"; };
+		41FBFEF422470EE800B42439 /* SentimentalAnalysis.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = SentimentalAnalysis.mlmodel; path = ../../../../SentimentalAnalysis.mlmodel; sourceTree = "<group>"; };
 		F95FDDAD2246C7B900CC0847 /* UserPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPickerViewController.swift; sourceTree = "<group>"; };
 		F95FDDAF2246CC6D00CC0847 /* UIStackView+RemoveSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+RemoveSubviews.swift"; sourceTree = "<group>"; };
 		F95FDDB32246F36600CC0847 /* HorizontalPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPickerViewController.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 		41FBFEDF2244278100B42439 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				41FBFEEF2247057000B42439 /* Model */,
 				41FBFEE02244278800B42439 /* Images */,
 			);
 			path = Resources;
@@ -333,6 +336,14 @@
 				41FBFEE822444E9F00B42439 /* QuackProgressViewController.swift */,
 			);
 			path = Progress;
+			sourceTree = "<group>";
+		};
+		41FBFEEF2247057000B42439 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				41FBFEF422470EE800B42439 /* SentimentalAnalysis.mlmodel */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F95FDDAC2246C7A600CC0847 /* UserPicker */ = {
@@ -456,6 +467,7 @@
 				41C288C92242607800AEBD83 /* CALayer+Create.swift in Sources */,
 				F95FDDB02246CC6D00CC0847 /* UIStackView+RemoveSubviews.swift in Sources */,
 				F95FDDB42246F36600CC0847 /* HorizontalPickerViewController.swift in Sources */,
+				41FBFEF522470EE800B42439 /* SentimentalAnalysis.mlmodel in Sources */,
 				41FBFEE6224439A200B42439 /* TextViewController.swift in Sources */,
 				41FBFED3224400ED00B42439 /* NeonButtonViewController.swift in Sources */,
 				41C288A622419EA400AEBD83 /* HomeViewController.swift in Sources */,
