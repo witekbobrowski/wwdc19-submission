@@ -16,12 +16,21 @@ class HomeViewController: UIViewController {
     private var headerView: UIView { return headerViewController.view }
     private var feedView: UIView { return feedViewController.view }
 
-    private let quackController = QuackController()
+    private let quackController: QuackController
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         reload()
+    }
+
+    init(quackController: QuackController) {
+        self.quackController = quackController
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
     }
 
     private func reload() {

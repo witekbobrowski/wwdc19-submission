@@ -9,12 +9,21 @@
 import Foundation
 
 class UserService {
+
+    private let animojiUsers: [User] = [
+        User.👽, User.🐻, User.🐱, User.🐔, User.🐶, User.🐲, User.🦊,
+        User.👻, User.🐨, User.🦁, User.🐵, User.🐼, User.🐷, User.💩,
+        User.🐰, User.🤖, User.💀, User.🐯, User.🦖, User.🦄
+    ]
+
+    var current: User?
+
+    init(current: User? = nil) {
+        self.current = current
+    }
+
     func fetch() -> [User] {
-        return [
-            User.👽, User.🐻, User.🐱, User.🐔, User.🐶, User.🐲, User.🦊,
-            User.👻, User.🐨, User.🦁, User.🐵, User.🐼, User.🐷, User.💩,
-            User.🐰, User.🤖, User.💀, User.🐯, User.🦖, User.🦄
-        ]
+        return (current.map { [$0] } ?? []) + animojiUsers
     }
 }
 

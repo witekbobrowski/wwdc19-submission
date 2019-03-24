@@ -10,15 +10,19 @@ import Foundation
 
 class QuackController {
 
+    private let userService: UserService
     private let quacksService: QuacksService
     private let sentimentService: SentimentService
 
     init(
+        current: User? = nil,
+        userService: UserService = UserService(),
         quacksService: QuacksService = QuacksService(),
         sentimentService: SentimentService = SentimentService()
     ) {
         self.quacksService = quacksService
         self.sentimentService = sentimentService
+        current.map(<#T##transform: (User) throws -> U##(User) throws -> U#>)
     }
 
 }
