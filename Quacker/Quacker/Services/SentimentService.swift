@@ -12,7 +12,7 @@ import NaturalLanguage
 
 class SentimentService {
 
-    private let model = SentimentalAnalysis()
+    private let model = SentimentalAnalysisHalf()
     private let wordIndex: [String: Int]
 
     private var inputSize: Int { return 100 }
@@ -27,7 +27,7 @@ class SentimentService {
         // Using NLP Tagger convert words to tokens
         let lemmas = words.map(lemmatize)
         // Retrive IDs for each token
-        let ids = lemmas.compactMap { wordIndex[$0] }
+        let ids = lemmas.map { wordIndex[$0] ?? 0 }
         // Pad ID sequence to match required input lenght
         let input = pad(sequence: ids, toLenght: inputSize)
         // Predict sentiment using SentimentAnalysis model
@@ -67,7 +67,7 @@ extension SentimentService {
         tagger.enumerateTags(
             in: range, unit: .word, scheme: .lemma, options: options
         ) { tag, tokenRange, stop in
-            lemma = tag?.rawValue
+            lemma = tag?.rawValue ?? ""
         }
         return lemma ?? word
     }

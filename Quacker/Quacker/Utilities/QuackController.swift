@@ -57,25 +57,25 @@ extension QuackController {
     }
 
     private var mocks: [(String, Date, User)] {
-        // Thanks @tim_cook for Tweets, I hope its not a problem I steal them ;)
+        // Thanks @DalaiLama for Tweets
         return [
             (
-                "Wishing a Happy St. Patrick’s Day to everyone celebrating around the world, especially our Apple family in Ireland — 6,000 strong! We’re so proud to call Cork our home. Sláinte! ☘️",
+                "We may sometimes feel that we can’t do much as individuals, but humanity is made up of individuals; we can make a difference. As individuals we can influence our own families. Our families can influence our communities and our communities can influence our nations.",
                 Date(timeInterval: -6321, since: Date()),
                 User.🤖
             ),
             (
-                "Steve’s vision is reflected all around us at Apple Park. He would have loved it here, in this place he dreamed up — the home and inspiration for Apple’s future innovations. We miss him today on his 64th birthday, and every day.",
+                "We won’t bring about peace in the world merely by praying for it; we have to take steps to tackle the violence and corruption that disrupt peace. We can’t expect change if we don’t take action.",
                 Date(timeInterval: -8160, since: Date()),
                 User.👽
             ),
             (
-                "100 years ago today the Grand Canyon became a national park. It is a source of wonder and inspiration — one of America’s greatest treasures. “In God's wildness lies the hope of the world.” — John Muir #shotoniPhone by @austinmann",
+                "The first drawback of anger is that it destroys our inner peace; the second is that it distorts our view of reality. If we think about this and come to understand that anger is really unhelpful, that it is only destructive, we can begin to distance ourselves from anger.",
                 Date(timeInterval: -506, since: Date()),
                 User.🐵
             ),
             (
-                "Poopy-di scoop",
+                "Compassion is something really worthwhile. It is not just a religious or spiritual subject, not a matter of ideology. It is not a luxury, it is a necessity.",
                 Date(timeInterval: -2500, since: Date()),
                 User.💀
             ),

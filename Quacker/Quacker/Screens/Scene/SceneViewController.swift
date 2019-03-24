@@ -13,7 +13,7 @@ public class SceneViewController: UIViewController {
     // Workaroud for broken Xcode Playgrounds...
     private let _modalViewController = ModalViewController()
 
-    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    public override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
     public var contentViewController: UIViewController? {
         didSet {
