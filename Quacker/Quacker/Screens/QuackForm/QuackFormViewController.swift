@@ -18,8 +18,8 @@ protocol QuackFormViewControllerDelegate: class {
 
 class QuackFormViewController: UIViewController {
 
+    private let userPickerViewController: UserPickerViewController
     private let textViewController = TextViewController()
-    private let userPickerViewController = UserPickerViewController()
     private let progressViewController = QuackProgressViewController()
     private let quackButtonViewController = NeonButtonViewController()
 
@@ -28,6 +28,15 @@ class QuackFormViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+
+    init(userPickerViewController: UserPickerViewController) {
+        self.userPickerViewController = userPickerViewController
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
     }
 
     @objc private func quackButtonDidTap(_ button: UIButton) {

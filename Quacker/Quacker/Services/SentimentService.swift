@@ -25,7 +25,7 @@ class SentimentService {
         for index in 0..<100 {
             input.words[index] = NSNumber(value: Int.random(in: 0...2000))
         }
-        let prediction = try! model.prediction(input: input)
+//        let prediction = try! model.prediction(input: input)
         return Sentiment(value: 0)
     }
 

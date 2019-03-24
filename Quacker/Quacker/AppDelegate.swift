@@ -15,9 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        // Create a user for yourself 🤩
+        let user: User? = User(
+            username: "witekbobrowski",
+            fullName: "Witek Bobrowski",
+            avatar: "👨🏻‍💻" // Remeber to use a single emoji for the avatar!
+        )
+        // Psst. Avatars with emojis from Animoji are already taken, so you might
+        // want to choose a different one 🙃
+
         let scene = SceneViewController()
         scene.contentViewController = HomeViewController(
-            quackController: QuackController()
+            quackController: QuackController(current: user)
         )
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = scene

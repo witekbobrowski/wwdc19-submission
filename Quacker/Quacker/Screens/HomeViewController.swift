@@ -18,12 +18,6 @@ class HomeViewController: UIViewController {
 
     private let quackController: QuackController
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupView()
-        reload()
-    }
-
     init(quackController: QuackController) {
         self.quackController = quackController
         super.init(nibName: nil, bundle: nil)
@@ -31,6 +25,12 @@ class HomeViewController: UIViewController {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError()
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupView()
+        reload()
     }
 
     private func reload() {
@@ -82,7 +82,11 @@ extension HomeViewController: HomeHeaderViewControllerDelegate {
     func homeHeaderViewControllerDidSelectQuack(
         _ homeHeaderViewController: HomeHeaderViewController
     ) {
-        let quackFormViewController = QuackFormViewController()
+        let quackFormViewController = QuackFormViewController(
+            userPickerViewController: UserPickerViewController(
+                userService: quackController.userService
+            )
+        )
         quackFormViewController.delegate = self
         presentModally(quackFormViewController)
     }

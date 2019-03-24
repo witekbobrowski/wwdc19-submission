@@ -10,7 +10,7 @@ import UIKit
 
 class UserPickerViewController: UIViewController {
 
-    private let userService = UserService()
+    private let userService: UserService
 
     private let pickerViewController = HorizontalPickerViewController()
 
@@ -27,6 +27,15 @@ class UserPickerViewController: UIViewController {
 
     var current: User? {
         return pickerViewController.current.map { users[$0] }
+    }
+
+    init(userService: UserService) {
+        self.userService = userService
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
     }
 
     override func viewDidLoad() {
