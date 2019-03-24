@@ -1,0 +1,93 @@
+{
+  "storage" : "model.espresso.weights",
+  "properties" : {
+
+  },
+  "format_version" : 200,
+  "layers" : [
+    {
+      "nB" : 36815,
+      "top" : "embedding_13_output",
+      "has_biases" : 0,
+      "blob_weights_f16" : 1,
+      "nC" : 300,
+      "weights" : {
+
+      },
+      "is_lookup" : 1,
+      "type" : "inner_product",
+      "has_relu" : 0,
+      "bottom" : "input1",
+      "has_tanh" : 0,
+      "hint_fallback_from_metal" : 1,
+      "name" : "embedding_13",
+      "has_prelu" : 0
+    },
+    {
+      "input_size" : 300,
+      "arch" : 1,
+      "hidden_size" : 100,
+      "nonlinearity_alpha" : 1,
+      "nonlinearity_bidir_type" : 0,
+      "coupled_input_forget" : 0,
+      "lstm_forget_bias" : 1,
+      "bias_vector_flag" : 1,
+      "mode" : 0,
+      "cell_clip_threshold" : 50000,
+      "type" : "rnn_arch",
+      "internal_nonlinearity_second_beta" : 1,
+      "internal_nonlinearity_alpha" : 1,
+      "internal_nonlinearity_beta" : 1,
+      "forget_bias" : 0,
+      "weights" : {
+        "W_h" : 3,
+        "W_x" : 5,
+        "b" : 7
+      },
+      "lstm_has_peepholes" : 0,
+      "beta" : 1,
+      "quantization_mode" : 0,
+      "name" : "lstm_11",
+      "top" : "lstm_11_output,lstm_11_h_out,lstm_11_c_out",
+      "alpha" : 1,
+      "max_batch_size" : 1,
+      "nonlinearity_bidir_alpha" : 1,
+      "nonlinearity_beta" : 1,
+      "internal_nonlinearity_second_alpha" : 1,
+      "encoder_bidirectional_mode" : 0,
+      "internal_nonlinearity_type" : 3,
+      "bottom" : "embedding_13_output,lstm_11_h_in,lstm_11_c_in",
+      "nonlinearity_type" : 0,
+      "nonlinearity_bidir_beta" : 1,
+      "encoder_output_sequence" : 0,
+      "internal_nonlinearity_second_type" : 0
+    },
+    {
+      "nB" : 100,
+      "top" : "dense_15_output",
+      "has_biases" : 1,
+      "name" : "dense_15",
+      "nC" : 1,
+      "weights" : {
+
+      },
+      "type" : "inner_product",
+      "has_relu" : 0,
+      "bottom" : "lstm_11_output",
+      "blob_biases" : 9,
+      "has_tanh" : 0,
+      "blob_weights_f16" : 11,
+      "has_prelu" : 0
+    },
+    {
+      "mode" : 3,
+      "weights" : {
+
+      },
+      "top" : "sentiment",
+      "type" : "activation",
+      "name" : "dense_15__activation__",
+      "bottom" : "dense_15_output"
+    }
+  ]
+}

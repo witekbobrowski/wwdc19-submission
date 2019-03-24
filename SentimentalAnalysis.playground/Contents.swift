@@ -1,18 +1,27 @@
 import UIKit
 import PlaygroundSupport
-import CoreML
 
-let label = UILabel()
-label.frame = CGRect(x: 150, y: 200, width: 300, height: 500)
-label.text = "Hello World!"
-label.textAlignment = .center
-label.textColor = .black
-label.backgroundColor = .white
-label.numberOfLines = 0
 
-let sentimentalAnalysis = SentimentalAnalysis()
+// Welcome to my WWDC19 playground!
 
-label.text = sentimentalAnalysis.model.modelDescription.metadata[.description] as? String
+// Create a user for yourself 🤩
+let user: User? = User(
+    username: "witekbobrowski",
+    fullName: "Witek Bobrowski",
+    avatar: "👨🏻‍💻" // Remeber to use a single emoji for the avatar!
+)
+// Psst. Avatars with emojis from Animoji are already taken, so you might
+// want to choose a different one 🙃
 
-// Present the view controller in the Live View window
-PlaygroundPage.current.liveView = label
+let scene = SceneViewController()
+let home = HomeViewController(
+    quackController: QuackController(current: user)
+)
+scene.contentViewController = home
+home.scene = scene
+
+let window = UIWindow(frame: CGRect(x: 0, y: 0, width: 720, height: 720))
+window.rootViewController = scene
+window.makeKeyAndVisible()
+
+PlaygroundPage.current.liveView = window

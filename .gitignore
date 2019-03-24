@@ -152,7 +152,7 @@ dmypy.json
 
 # CSV
 */**.csv
-
+*/*/**.csv
 ### Swift ###
 # Xcode
 #

@@ -12,7 +12,7 @@ import NaturalLanguage
 
 class SentimentService {
 
-    private let model = SentimentalAnalysisHalf()
+    private let model = SentimentalAnalysisModelFP16()
     private let wordIndex: [String: Int]
 
     private var inputSize: Int { return 100 }
@@ -36,7 +36,7 @@ class SentimentService {
             lstm_11_h_in: input.multiArray!,
             lstm_11_c_in: nil
         )
-        return Sentiment(value: Double(truncating: prediction.output1[0]))
+        return Sentiment(value: Double(truncating: prediction.sentiment[0]))
     }
 
 }

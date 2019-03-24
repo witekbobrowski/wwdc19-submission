@@ -99,7 +99,6 @@ extension InfoViewController {
             machineLearningContentLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             machineLearningContentLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -19),
         ])
-
     }
 
     private var content: String {
