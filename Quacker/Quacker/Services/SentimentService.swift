@@ -12,7 +12,7 @@ import NaturalLanguage
 
 class SentimentService {
 
-    private let model = SentimentalAnalysis()
+    private let model = SentimentalAnalysisHalf()
     private let wordIndex: [String: Int]
 
     init() {
@@ -23,47 +23,51 @@ class SentimentService {
         // Using NLP Tagger perform text cleanup to extract words
         let words = bagOfWords(text: text)
         // Using NLP Tagger convert words to tokens
-        let lemmas = words.keys.flatMap(lemmatize)
+        let lemmas = words.map(lemmatize)
         // Retrive IDs for each token
         let ids = lemmas.compactMap { wordIndex[$0] }
         // Pad ID sequence to match required input lenght
         let input = pad(sequence: ids, toLenght: 100)
         // Predict sentiment using SentimentAnalysis model
-//        let prediction = try! model.prediction(input: input)
-        return Sentiment(value: 0)
+        let prediction = try! model.prediction(
+            input1: [100].multiArray!,
+            lstm_5_h_in: input.multiArray!,
+            lstm_5_c_in: nil
+        )
+        return Sentiment(value: Double(prediction.output1[0]))
     }
 
 }
 
 extension SentimentService {
 
-    private func bagOfWords(text: String) -> [String: Double] {
+    private func bagOfWords(text: String) -> [String] {
         let tagger = NSLinguisticTagger(tagSchemes: [.tokenType], options: 0)
         tagger.string = text
-        var bagOfWords: [String: Double] = [:]
+        var words: [String] = []
         let range = NSRange(location: 0, length: text.utf16.count)
-        let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace]
+        let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace, .omitOther]
         tagger.enumerateTags(
             in: range, unit: .word, scheme: .tokenType, options: options
         ) { tag, tokenRange, stop in
             let word = (text as NSString).substring(with: tokenRange)
-            bagOfWords[word, default: 0] += 1
+            words.append(word.lowercased())
         }
-        return bagOfWords
+        return words
     }
 
-    private func lemmatize(word: String) -> [String] {
+    private func lemmatize(word: String) -> String {
         let tagger = NSLinguisticTagger(tagSchemes: [.lemma], options: 0)
         tagger.string = word
-        var words: [String] = []
+        var lemma: String?
         let range = NSRange(location: 0, length: word.utf16.count)
-        let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace]
+        let options: NSLinguisticTagger.Options = []
         tagger.enumerateTags(
             in: range, unit: .word, scheme: .lemma, options: options
         ) { tag, tokenRange, stop in
-            tag.map { words.append($0.rawValue) }
+            lemma = tag?.rawValue
         }
-        return words
+        return lemma ?? word
     }
 
     private func pad(sequence: [Int], toLenght lenght: Int) -> [Int] {
@@ -71,7 +75,7 @@ extension SentimentService {
             return Array(sequence.prefix(lenght))
         }
         let padding = (0..<lenght - sequence.count).map { _ in 0 }
-        return sequence + padding
+        return padding + sequence
     }
 
 }
@@ -90,4 +94,12 @@ extension SentimentService {
         return words
     }
 
+}
+
+extension Array where Element == Int {
+    var multiArray: MLMultiArray? {
+        let array = try? MLMultiArray(shape: [NSNumber(value: count)], dataType: .double)
+        enumerated().forEach { array?[$0] = NSNumber(value: $1) }
+        return array
+    }
 }

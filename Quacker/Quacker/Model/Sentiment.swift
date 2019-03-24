@@ -25,6 +25,7 @@ extension Sentiment {
         case 0.4..<0.6: return "😐"
         case 0.6..<0.7: return "🙂"
         case 0.7..<0.8: return "😌"
+        case 0.8..<0.9: return "😋"
         case 0.9...: return "🤩"
         default: return ""
         }

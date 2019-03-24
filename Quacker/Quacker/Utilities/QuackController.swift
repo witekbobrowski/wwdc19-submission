@@ -36,9 +36,8 @@ extension QuackController {
 
     func createQuack(with text: String, from user: User, completion: @escaping () -> Void) {
         let quack = Quack(
-            text: text, date: Date(), sentiment: Sentiment(value: 0.5), user: user
+            text: text, date: Date(), sentiment: sentimentService.sentiment(for: text), user: user
         )
-        sentimentService.sentiment(for: text)
         quacksService.save(quack: quack)
         completion()
     }
