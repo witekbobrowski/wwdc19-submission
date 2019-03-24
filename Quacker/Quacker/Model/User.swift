@@ -8,10 +8,16 @@
 
 import Foundation
 
-struct User: Codable {
+public struct User: Codable {
     let username: String
     let fullName: String
     let avatar: String
+
+    public init(username: String, fullName: String, avatar: String) {
+        self.username = username
+        self.fullName = fullName
+        self.avatar = avatar
+    }
 }
 
 extension User {

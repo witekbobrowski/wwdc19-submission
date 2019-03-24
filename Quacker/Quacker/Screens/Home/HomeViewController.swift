@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+public class HomeViewController: UIViewController {
 
     private let headerViewController = HomeHeaderViewController()
     private let feedViewController = FeedViewController()
@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
         fatalError()
     }
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         reload()

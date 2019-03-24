@@ -8,21 +8,21 @@
 
 import UIKit
 
-class SceneViewController: UIViewController {
+public class SceneViewController: UIViewController {
 
-    // Workourd for broken Xcode Playgrounds...
+    // Workaroud for broken Xcode Playgrounds...
     private let _modalViewController = ModalViewController()
 
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
-    var contentViewController: UIViewController? {
+    public var contentViewController: UIViewController? {
         didSet {
             remove(old: oldValue)
             embed(new: contentViewController)
         }
     }
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         hideModal()

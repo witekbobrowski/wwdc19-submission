@@ -140,11 +140,8 @@
 		41C288A322419E8300AEBD83 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				41FBFEF6224784E800B42439 /* Footer */,
-				41C288A522419EA400AEBD83 /* HomeViewController.swift */,
+				41FBFF012248103D00B42439 /* Home */,
 				41C288BF224246BB00AEBD83 /* Common */,
-				41C288A722419ECB00AEBD83 /* Feed */,
-				41FBFEC22242EB4000B42439 /* Header */,
 				41FBFEE122442E0900B42439 /* Info */,
 				41FBFED42244104C00B42439 /* QuackForm */,
 				41FBFEB62242CFF900B42439 /* Scene */,
@@ -358,6 +355,17 @@
 				41FBFEF72247850A00B42439 /* HomeFooterViewController.swift */,
 			);
 			path = Footer;
+			sourceTree = "<group>";
+		};
+		41FBFF012248103D00B42439 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				41FBFEF6224784E800B42439 /* Footer */,
+				41C288A522419EA400AEBD83 /* HomeViewController.swift */,
+				41C288A722419ECB00AEBD83 /* Feed */,
+				41FBFEC22242EB4000B42439 /* Header */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		F95FDDAC2246C7A600CC0847 /* UserPicker */ = {
