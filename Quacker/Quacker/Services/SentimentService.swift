@@ -13,18 +13,22 @@ import NaturalLanguage
 class SentimentService {
 
     private let model = SentimentalAnalysis()
+    private let wordIndex: [String: Int]
 
-    init() {}
+    init() {
+        self.wordIndex = SentimentService.loadWords(from: "words", extension: "txt")
+    }
 
     func sentiment(for text: String) -> Sentiment {
+        // Using NLP Tagger perform text cleanup to extract words
         let words = bagOfWords(text: text)
+        // Using NLP Tagger convert words to tokens
         let lemmas = words.keys.flatMap(lemmatize)
-        let input = SentimentalAnalysisInput(
-            words: try! MLMultiArray(shape: [100, 1], dataType: .double)
-        )
-        for index in 0..<100 {
-            input.words[index] = NSNumber(value: Int.random(in: 0...2000))
-        }
+        // Retrive IDs for each token
+        let ids = lemmas.compactMap { wordIndex[$0] }
+        // Pad ID sequence to match required input lenght
+        let input = pad(sequence: ids, toLenght: 100)
+        // Predict sentiment using SentimentAnalysis model
 //        let prediction = try! model.prediction(input: input)
         return Sentiment(value: 0)
     }
@@ -57,11 +61,33 @@ extension SentimentService {
         tagger.enumerateTags(
             in: range, unit: .word, scheme: .lemma, options: options
         ) { tag, tokenRange, stop in
-            if let lemma = tag?.rawValue {
-                words.append(lemma)
-            }
-//            words.append((word as NSString).substring(with: tokenRange))
+            tag.map { words.append($0.rawValue) }
         }
         return words
     }
+
+    private func pad(sequence: [Int], toLenght lenght: Int) -> [Int] {
+        guard sequence.count < lenght else {
+            return Array(sequence.prefix(lenght))
+        }
+        let padding = (0..<lenght - sequence.count).map { _ in 0 }
+        return sequence + padding
+    }
+
+}
+
+extension SentimentService {
+
+    private static func loadWords(
+        from file: String, extension fileExtension: String
+    ) -> [String: Int] {
+        var words = ["": 0]
+        let url = Bundle.main.url(forResource: file, withExtension: fileExtension)
+        let fileContents = try! String(contentsOf: url!)
+        fileContents.split(separator: "\n").enumerated().forEach { (index, word) in
+            words[String(word)] = index + 1
+        }
+        return words
+    }
+
 }
