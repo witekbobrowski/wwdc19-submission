@@ -71,6 +71,7 @@ extension HorizontalPickerViewController {
                 UITapGestureRecognizer(target: self, action: #selector(didTapItem))
             )
         }
+        current = content.indices.first
     }
 
     private func setupView() {

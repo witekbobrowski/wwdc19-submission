@@ -11,9 +11,14 @@ import Foundation
 class QuackController {
 
     private let quacksService: QuacksService
+    private let sentimentService: SentimentService
 
-    init(quacksService: QuacksService = QuacksService()) {
+    init(
+        quacksService: QuacksService = QuacksService(),
+        sentimentService: SentimentService = SentimentService()
+    ) {
         self.quacksService = quacksService
+        self.sentimentService = sentimentService
     }
 
 }
@@ -28,6 +33,7 @@ extension QuackController {
         let quack = Quack(
             text: text, date: Date(), sentiment: Sentiment(value: 0.5), user: user
         )
+        sentimentService.sentiment(for: text)
         quacksService.save(quack: quack)
         completion()
     }
