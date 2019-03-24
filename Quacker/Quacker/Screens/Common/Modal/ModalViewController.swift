@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ModalViewControllerDelegate: class {
+    func modalViewControllerDidExit(_ modalViewController: ModalViewController)
+}
+
 class ModalViewController: UIViewController {
 
     private let headerViewController = ModalHeaderViewController()
@@ -20,6 +24,7 @@ class ModalViewController: UIViewController {
         $0.backgroundColor = .clear
     }
 
+    weak var delegate: ModalViewControllerDelegate?
     var contentViewController: UIViewController? {
         didSet { reloadContent(old: oldValue, new: contentViewController) }
     }
@@ -112,6 +117,6 @@ extension ModalViewController: ModalHeaderViewControllerDelegate {
     func modalHeaderViewControllerDidSelectCancel(
         _ modalHeaderViewController: ModalHeaderViewController
     ) {
-        dismiss(animated: true)
+        delegate?.modalViewControllerDidExit(self)
     }
 }

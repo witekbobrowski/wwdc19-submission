@@ -20,6 +20,8 @@ class HomeViewController: UIViewController {
 
     private let quackController: QuackController
 
+    weak var scene: SceneViewController?
+
     init(quackController: QuackController) {
         self.quackController = quackController
         super.init(nibName: nil, bundle: nil)
@@ -88,7 +90,7 @@ extension HomeViewController: HomeHeaderViewControllerDelegate {
     func homeHeaderViewControllerDidSelectInfo(
         _ homeHeaderViewController: HomeHeaderViewController
     ) {
-        presentModally(InfoViewController())
+        scene?.showModal(for: InfoViewController())
     }
     func homeHeaderViewControllerDidSelectQuack(
         _ homeHeaderViewController: HomeHeaderViewController
@@ -99,7 +101,7 @@ extension HomeViewController: HomeHeaderViewControllerDelegate {
             )
         )
         quackFormViewController.delegate = self
-        presentModally(quackFormViewController)
+        scene?.showModal(for: quackFormViewController)
     }
 }
 
@@ -109,6 +111,7 @@ extension HomeViewController: QuackFormViewControllerDelegate {
         didQuacked quack: String?,
         as user: User?
     ) {
+        scene?.hideModal()
         presentedViewController?.dismiss(animated: true)
         guard let quack = quack, let user = user else { return }
         quackController.createQuack(

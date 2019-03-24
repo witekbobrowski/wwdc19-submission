@@ -10,6 +10,9 @@ import UIKit
 
 class SceneViewController: UIViewController {
 
+    // Workourd for broken Xcode Playgrounds...
+    private let _modalViewController = ModalViewController()
+
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
     var contentViewController: UIViewController? {
@@ -22,6 +25,7 @@ class SceneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        hideModal()
     }
 
 }
@@ -32,7 +36,7 @@ extension SceneViewController {
         guard let viewController = viewController else { return }
         add(child: viewController)
         viewController.view.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(viewController.view)
+        view.insertSubview(viewController.view, at: 0)
         NSLayoutConstraint.activate([
             viewController.view.topAnchor.constraint(equalTo: view.topAnchor),
             viewController.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -51,6 +55,46 @@ extension SceneViewController {
 
     private func setupView() {
         view.backgroundColor = StyleSheet.Color.backgroundColor
+        setupModal()
     }
 
+    private func setupModal() {
+        _modalViewController.delegate = self
+        add(child: _modalViewController)
+        view.addSubview(_modalViewController.view)
+        _modalViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            _modalViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            _modalViewController.view.topAnchor.constraint(
+                equalTo: view.topAnchor
+            ),
+            _modalViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            _modalViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
+    }
+
+    func showModal(for viewController: UIViewController) {
+        _modalViewController.contentViewController = viewController
+        UIView.animate(withDuration: 0.2) { [weak self] in
+            self?._modalViewController.view.alpha = 1
+        }
+    }
+
+    func hideModal() {
+        UIView.animate(
+            withDuration: 0.2,
+            animations: { [weak self] in
+                self?._modalViewController.view.alpha = 0
+            }
+        ) { [weak self] _ in
+            self?._modalViewController.contentViewController = nil
+        }
+    }
+
+}
+
+extension SceneViewController: ModalViewControllerDelegate {
+    func modalViewControllerDidExit(_ modalViewController: ModalViewController) {
+        hideModal()
+    }
 }

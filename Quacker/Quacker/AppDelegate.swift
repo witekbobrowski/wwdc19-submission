@@ -26,9 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // want to choose a different one 🙃
 
         let scene = SceneViewController()
-        scene.contentViewController = HomeViewController(
+        let home = HomeViewController(
             quackController: QuackController(current: user)
         )
+        scene.contentViewController = home
+        home.scene = scene
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = scene
         window?.makeKeyAndVisible()

@@ -57,6 +57,7 @@ extension QuackController {
     }
 
     private var mocks: [(String, Date, User)] {
+        // Thanks @tim_cook for Tweets, I hope its not a problem I steal them ;)
         return [
             (
                 "Wishing a Happy St. Patrick’s Day to everyone celebrating around the world, especially our Apple family in Ireland — 6,000 strong! We’re so proud to call Cork our home. Sláinte! ☘️",
@@ -74,7 +75,7 @@ extension QuackController {
                 User.🐵
             ),
             (
-                "Phone photographers from all over the world have dazzled us with their talent and passion. The photos are remarkable! Congratulations to those behind the winning submissions, and thanks to everyone for participating.",
+                "Poopy-di scoop",
                 Date(timeInterval: -2500, since: Date()),
                 User.💀
             ),

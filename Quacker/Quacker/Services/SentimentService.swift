@@ -12,8 +12,10 @@ import NaturalLanguage
 
 class SentimentService {
 
-    private let model = SentimentalAnalysisHalf()
+    private let model = SentimentalAnalysis()
     private let wordIndex: [String: Int]
+
+    private var inputSize: Int { return 100 }
 
     init() {
         self.wordIndex = SentimentService.loadWords(from: "words", extension: "txt")
@@ -27,14 +29,14 @@ class SentimentService {
         // Retrive IDs for each token
         let ids = lemmas.compactMap { wordIndex[$0] }
         // Pad ID sequence to match required input lenght
-        let input = pad(sequence: ids, toLenght: 100)
+        let input = pad(sequence: ids, toLenght: inputSize)
         // Predict sentiment using SentimentAnalysis model
         let prediction = try! model.prediction(
-            input1: [100].multiArray!,
-            lstm_5_h_in: input.multiArray!,
-            lstm_5_c_in: nil
+            input1: [inputSize].multiArray!,
+            lstm_11_h_in: input.multiArray!,
+            lstm_11_c_in: nil
         )
-        return Sentiment(value: Double(prediction.output1[0]))
+        return Sentiment(value: Double(truncating: prediction.output1[0]))
     }
 
 }
