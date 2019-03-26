@@ -1,7 +1,6 @@
 import UIKit
 import PlaygroundSupport
 
-
 // Welcome to my WWDC19 playground!
 
 // Create a user for yourself 🤩
@@ -20,7 +19,7 @@ let home = HomeViewController(
 scene.contentViewController = home
 home.scene = scene
 
-let window = UIWindow(frame: CGRect(x: 0, y: 0, width: 720, height: 720))
+let window = UIWindow(frame: CGRect(x: 0, y: 0, width: 760, height: 960))
 window.rootViewController = scene
 window.makeKeyAndVisible()
 
