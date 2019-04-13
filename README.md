@@ -14,7 +14,7 @@
 ### About
 
 Welcome to my submission and thank you for checking it out! The goal of this
-project was to create a simple Twitter clone that features Sentimental Analysis
+project was to create a simple Twitter clone that features Sentiment Analysis
 of the tweets. And this is exactly what it does! Just like on twitter, you can
 tweet - or rather quack - whatever is currently on your mind and share it with
 the world - or at least a couple of Animoji friends that are currently 
@@ -23,7 +23,7 @@ registered to Quacker :)
 ### Contents
 
 ##### 🦆 Quacker Xcode Playground
-[`SentimentalAnalysis.playground`](SentimentalAnalysis.playground)
+[`SentimentAnalysis.playground`](SentimentAnalysis.playground)
 
 Obviously the most important part of the submission, Xcode Playground that is 
 meant to be run on a mac computer with Xcode. Just before submitting I thought
@@ -35,7 +35,7 @@ that is why you can find plenty of *UIViewController* subclasses that handle as 
 a single *UIImageView* in this codebase.
 
 ##### 🧠 Jupyter Notebook with Machine Learning Model
-[`SentimentalAnalysis.ipynb`](SentimentalAnalysis.ipynb)
+[`SentimentAnalysis.ipynb`](SentimentAnalysis.ipynb)
 
 This notebook contains source for model training using `Keras`, and also loading
 dataset and preprocessing tweets with `Spacy`. The dataset contains 1.6mln tweets 
@@ -55,4 +55,4 @@ so it could fit in the submission archive.
 
 1. Clone repository
 2. Open Playground with Xcode
-3. Have fun sending quacks with mediocre Sentimental Analysis
+3. Have fun sending quacks with mediocre Sentiment Analysis

@@ -1,7 +1,7 @@
 import keras
 import coremltools
 
-loaded_model = keras.models.load_model('SentimentalAnalysisModel.h5')
+loaded_model = keras.models.load_model('SentimentAnalysisModel.h5')
 
 # Load keras model and convert to CoreML
 model = coremltools.converters.keras.convert(
@@ -12,15 +12,15 @@ model = coremltools.converters.keras.convert(
 # Set model metadata
 model.author = 'Witek Bobrowski'
 model.license = 'MIT'
-model.short_description = 'Predicts the sentimental value for a sequence of words in English Language'
+model.short_description = 'Predicts the sentiment value for a sequence of words in English Language'
 
 # Set the output description
-model.output_description['sentiment'] = 'Sentimental value for sequence of words from input'
+model.output_description['sentiment'] = 'Sentiment value for sequence of words from input'
 
 # Save the model
-model.save('SentimentalAnalysisModel.mlmodel')
+model.save('SentimentAnalysisModel.mlmodel')
 
 # Also save Half Precistion model
-model_spec = coremltools.utils.load_spec('SentimentalAnalysisModel.mlmodel')
+model_spec = coremltools.utils.load_spec('SentimentAnalysisModel.mlmodel')
 model_fp16_spec = coremltools.utils.convert_neural_network_spec_weights_to_fp16(model_spec)
-coremltools.utils.save_spec(model_fp16_spec, 'SentimentalAnalysisModelFP16.mlmodel')
+coremltools.utils.save_spec(model_fp16_spec, 'SentimentAnalysisModelFP16.mlmodel')
