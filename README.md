@@ -1,4 +1,4 @@
-# WWDC18 Scholarship submission
+# WWDC19 Scholarship submission
 
 <p align=center>
 <a href="">
