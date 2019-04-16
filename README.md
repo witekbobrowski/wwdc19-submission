@@ -8,7 +8,7 @@
 <p align=center>
     <a href="https://developer.apple.com/wwdc/"><img alt="WWDC" src="https://img.shields.io/badge/WWDC-2019-121b2e.svg"></a>
     <a href="https://swift.org"><img alt="Swift" src="https://img.shields.io/badge/Swift-4.2-oragne.svg"></a>
-    <a href="https://developer.apple.com/wwdc/scholarships/"><img alt="Status" src="https://img.shields.io/badge/Status-submitted-blue.svg"></a>
+    <a href="https://developer.apple.com/wwdc/scholarships/"><img alt="Status" src="https://img.shields.io/badge/Status-accepted-green.svg"></a>
 </p>
 
 ### About
